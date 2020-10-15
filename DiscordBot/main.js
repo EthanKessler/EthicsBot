@@ -29,9 +29,9 @@ client.on('message', message =>{
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
     }
-    if(command === 'yt' || command === 'youtube'){
-        message.channel.send('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg');
-    }
+    // if(command === 'yt' || command === 'youtube'){
+    //     message.channel.send('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg');
+    // } TEMP
 
 //Bot kill switch
     if(command === 'restart'){
