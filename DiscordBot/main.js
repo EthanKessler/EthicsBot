@@ -33,6 +33,9 @@ client.on('message', message =>{
     //     message.channel.send('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg');
     // } TEMP
 
+
+    
+////ADMIN ONLY////
 //Bot kill switch
     if(command === 'restart'){
         if(message.author.id !== '527872052716371999') return;
@@ -40,6 +43,15 @@ client.on('message', message =>{
             process.exit(1);
         })
     };
+//set bot status
+    if(command === 'status'){
+        if(message.author.id !== '527872052716371999') return;
+
+        client.user.setActivity("“Hell isn't a fire pit but a museum of regrets.”", {
+            type: "WATCHING",
+            url: "https://www.youtube.com/watch?v=WX0xWJpr0FY"
+        });
+    }
 });
 
 client.login(process.env.token);
