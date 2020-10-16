@@ -34,7 +34,7 @@ client.on('message', message =>{
     // } TEMP
 
 
-    
+
 ////ADMIN ONLY////
 //Bot kill switch
     if(command === 'restart'){
@@ -48,7 +48,7 @@ client.on('message', message =>{
         if(message.author.id !== '527872052716371999') return;
 
         client.user.setActivity("“Hell isn't a fire pit but a museum of regrets.”", {
-            type: "WATCHING",
+            type: "STREAMING",
             url: "https://www.youtube.com/watch?v=WX0xWJpr0FY"
         });
     }
