@@ -7,17 +7,15 @@ module.exports = {
 
 
 
-    name: 'videos',
+    name: 'video',
     description: "display link",
 
     execute(message, args){
         
-        message.author.send(args);
-
         if(!this.Dict.includes(args)) return;
         //Now allocate the fucking thing
         Index = this.Dict.indexOf(args)
 
-        // message.author.send(args);
+        message.author.send("This should be a video link, but something went wrong...");
     }
 }

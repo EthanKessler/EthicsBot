@@ -33,7 +33,7 @@ client.on('message', message =>{
         client.commands.get('invite').execute(message, args);
     }
     if(command === 'video'){
-        client.commands.get('video').execute(message, args);
+        client.commands.get('videos').execute(message, args);
     }
     
 
