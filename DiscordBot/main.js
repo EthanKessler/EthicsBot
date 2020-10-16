@@ -25,13 +25,17 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
+    //TB REMOVED
+    message.channel.send(args);
+
 //Adding all the commands
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
     }
-    // if(command === 'yt' || command === 'youtube'){
-    //     message.channel.send('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg');
-    // } TEMP
+    if(command === 'invite'){
+        client.commands.get('invite').execute(message, args);
+    }
+    
 
 
 
