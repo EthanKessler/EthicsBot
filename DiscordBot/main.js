@@ -32,6 +32,9 @@ client.on('message', message =>{
     if(command === 'invite'){
         client.commands.get('invite').execute(message, args);
     }
+    if(command === 'video'){
+        client.commands.get('video').execute(message, args);
+    }
     
 
 
@@ -48,6 +51,7 @@ client.on('message', message =>{
     if(command === 'status'){
         if(message.author.id !== '527872052716371999') return;
 
+        String(args);
         client.user.setActivity(args);
     }
 });
