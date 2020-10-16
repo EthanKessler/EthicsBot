@@ -51,7 +51,7 @@ client.on('message', message =>{
     if(command === 'status'){
         if(message.author.id !== '527872052716371999') return;
 
-        client.user.setActivity("“Hell isn't a fire pit but a museum of regrets.”");
+        client.user.setActivity(args);
     }
 });
 

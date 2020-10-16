@@ -16,6 +16,6 @@ module.exports = {
         //Now allocate the fucking thing
         Index = this.Dict.indexOf(args)
 
-        message.channel.send(this.Output);
+        message.author.send(this.Def[Index]);
     }
 }
