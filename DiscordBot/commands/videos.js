@@ -12,10 +12,12 @@ module.exports = {
 
     execute(message, args){
         
+        message.author.send(args);
+
         if(!this.Dict.includes(args)) return;
         //Now allocate the fucking thing
         Index = this.Dict.indexOf(args)
 
-        message.author.send(args);
+        // message.author.send(args);
     }
 }
