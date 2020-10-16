@@ -25,9 +25,6 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    //TB REMOVED
-    message.channel.send(args);
-
 //Adding all the commands
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
