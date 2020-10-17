@@ -91,7 +91,7 @@ client.on('message', async message =>{
         
         
 
-        message.author.send(link);
+        message.author.send(`Definition: ${link}`);
 
         //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
     }
