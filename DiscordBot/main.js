@@ -77,10 +77,10 @@ client.on('message', async message =>{
         //client.commands.get('videos').execute(message, args, VideoDict, VideoDef);
     }
     if(command === 'donate'){
-        client.commands.get('invite').execute(message, args);
+        client.commands.get('donate').execute(message, args);
     }
     if(command === 'mystery'){
-        
+        client.commands.get('mystery').execute(message, args);
     }
 
 
