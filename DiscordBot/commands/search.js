@@ -3,10 +3,10 @@ module.exports = {
     description: "Search for something",
 
 
-    execute(message, args){
+    execute(message, SearchTerm){
 
         var Wiki = "en.wikipedia.org/wiki/";
-        var Output = Wiki.concat(args[0]);
+        var Output = Wiki.concat(SearchTerm);
         
 
         message.author.send(Output);
