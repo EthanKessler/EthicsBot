@@ -94,6 +94,9 @@ client.on('message', async message =>{
 
         //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
     }
+    if(command === 'quote' || command === 'quotes'){
+        client.commands.get('quote').execute(message, args);
+    }
 
 
 
@@ -111,6 +114,23 @@ client.on('message', async message =>{
 
         var activity = args.join(" ");
         client.user.setActivity(activity);
+    }
+//Uptime
+    if(command === 'uptime'){
+        if(message.author.id !== '527872052716371999') return;
+
+        //Setting up time//
+        let totalSeconds = (client.uptime / 1000);
+        let days = Math.floor(totalSeconds / 86400);
+        totalSeconds %= 86400;
+        let hours = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = Math.floor(totalSeconds % 60);
+
+        let uptime = `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
+        //There ye go//
+        message.channel.send(uptime)
     }
 });
 
