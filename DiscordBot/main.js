@@ -114,7 +114,7 @@ client.on('message', async message =>{
 
         var activity = args.join(" ");
         client.user.setActivity(activity);
-    }
+    };
 //Uptime
     if(command === 'uptime'){
         if(message.author.id !== '527872052716371999') return;
