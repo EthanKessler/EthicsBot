@@ -102,7 +102,7 @@ client.on('message', async message =>{
 
         message.channel.send("Command is executing");
         const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
-        subs.array.forEach(subfile => {
+        for(const subfile of subs){
             message.channel.send("Loop is working");
             var filetext = fs.readFileSync(`./subs.${subfile}`, 'utf8', function read(err, data) {
                 if(err) {
@@ -115,7 +115,7 @@ client.on('message', async message =>{
                 }
             })
             
-        });
+        };
     }
 
 
