@@ -101,11 +101,19 @@ client.on('message', async message =>{
         //client.commands.get('find').execute(message, args);
 
         const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
-        subs.array.forEach(file => {
-            if(fs.readFile(file).includes("hello")){
-                var TempThing = file;
-                message.author.send(TempThing);
-            }
+        subs.array.forEach(subfile => {
+
+            var filetext = fs.readFileSync(`./subs.${subfile}`, 'utf8', function read(err, data) {
+                if(err) {
+                    message.channel.send("That crashed and burned");
+                }
+                var content = data;
+
+                if(length(content)){
+                    message.channel.send("Ok so apparently this works");
+                }
+            })
+            
         });
     }
 
