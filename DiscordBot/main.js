@@ -106,6 +106,7 @@ client.on("messageReactionAdd", async (reaction, user) =>{
     if (reaction.message.channel.id === "766392101633523765"){
         if (reaction.emoji.name === '1️⃣') {
             await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[0]}`) 
+            reaction.message.delete();
         }
         if (reaction.emoji.name === '2️⃣') {
             await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[1]}`) 
