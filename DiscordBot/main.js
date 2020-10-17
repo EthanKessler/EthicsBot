@@ -53,7 +53,7 @@ client.on('message', async message =>{
 
         let embed = new Discord.MessageEmbed()
         .setTitle('Videos')
-        .setDescription('React to select a video: \n')
+        .setDescription(VideoSelect)
         .setColor('GREEN')
         let msgEmbed = await message.channel.send(embed)
         msgEmbed.react('1️⃣')
