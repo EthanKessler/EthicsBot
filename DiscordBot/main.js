@@ -107,7 +107,7 @@ client.on('message', async message =>{
             var filetext = fs.readFileSync(`./subs/${subfile}`, 'utf8');
             
             message.channel.send("Tried to read file");
-            if(length(filetext)){
+            if(filetext.length > 0){
                 message.channel.send("I can read this file");
             }
         };
