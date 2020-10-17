@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-const client = new Discord.Client();
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
 const prefix = '.';
 
@@ -84,5 +84,18 @@ client.on('message', async message =>{
         client.user.setActivity(args);
     }
 });
+
+bot.on("messageReactionAdd", async (reaction, user) =>{
+    if (reaction.message.partial) await reaction.message.fetch();
+
+    if (user.bot) return;
+    if (!reaction.message.guild) return;
+
+    if (reaction.message.channel.id === "766392101633523765"){
+        if (reaction.emoji.name === '1️⃣') {
+            await raction.message.guild.members.cache.get(user,id).send("Pong") 
+        }
+    }
+})
 
 client.login(process.env.token);
