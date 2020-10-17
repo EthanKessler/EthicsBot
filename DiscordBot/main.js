@@ -85,7 +85,7 @@ client.on('message', async message =>{
     }
 });
 
-bot.on("messageReactionAdd", async (reaction, user) =>{
+client.on("messageReactionAdd", async (reaction, user) =>{
     if (reaction.message.partial) await reaction.message.fetch();
 
     if (user.bot) return;
