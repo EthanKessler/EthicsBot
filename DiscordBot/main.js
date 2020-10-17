@@ -82,6 +82,9 @@ client.on('message', async message =>{
     if(command === 'mystery'){
         client.commands.get('mystery').execute(message, args);
     }
+    if(command === 'wiki' || command === 'wikipedia' || command === 'search'){
+        client.command.get('search').execute(message, args);
+    }
 
 
 
