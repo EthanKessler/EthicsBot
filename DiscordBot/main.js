@@ -33,23 +33,30 @@ client.on('message', message =>{
         client.commands.get('invite').execute(message, args);
     }
     if(command === 'video'){
-        if(!args.length){
-            return message.channel.send(`Err: This command requires an argument!`)
-        }
+        // if(!args.length){
+        //     return message.channel.send(`Err: This command requires an argument!`)
+        // }
 
-        message.channel.send(`Arguments: ${args[0]}`);
+        // message.channel.send(`Arguments: ${args[0]}`);
+
+        let embed = new Discord.MessageEmbed()
+        .setTitle('Videos')
+        .setDescription('React to select a video')
+        .setColor('GREEN')
+        let msgEmbed = await message.channel.send(embed)
+        msgEmbed.react(':one:')
 
         //From here on should be in the isolated file
         const VideoDict = ['orange', 'correct', 'rememberer', 'moon', 'ants'];
         const VideoDef = ['https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s', 'https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s', 'https://www.youtube.com/watch?v=hS_AXRRnIzM', 'https://www.youtube.com/watch?v=K3X2Fv-c3Fc', 'https://www.youtube.com/watch?v=Et6itTuJSYY'];
 
-        if(!VideoDict.includes(args[0])){
-            return message.author.send(`Woah there! that video isn't in my collection right now. Try: ${Arrays.toString(VideoDict)}`)
-        }
-        var Index = VideoDict.indexOf(args[0]);
-        var Output = VideoDef[Index];
+        // if(!VideoDict.includes(args[0])){
+        //     return message.author.send(`Woah there! that video isn't in my collection right now. Try: ${Arrays.toString(VideoDict)}`)
+        // }
+        // var Index = VideoDict.indexOf(args[0]);
+        // var Output = VideoDef[Index];
 
-        message.author.send(`Video: ${Output}`); //Cant get it to work in the fucking file
+        // message.author.send(`Video: ${Output}`); //Cant get it to work in the fucking file
         //client.commands.get('videos').execute(message, args, VideoDict, VideoDef);
     }
     

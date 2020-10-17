@@ -1,3 +1,4 @@
+const { DiscordAPIError } = require("discord.js");
 
 module.exports = {
     //Setting up dictionary
@@ -10,7 +11,7 @@ module.exports = {
     name: 'video',
     description: "display link",
 
-    execute(message, args, VideoDict, VideoDef){
+    execute(message, args, VideoDict, VideoDef){ 
 
         //if(!VideoDict.includes(args[0])) return;
         //Now allocate the fucking thing
