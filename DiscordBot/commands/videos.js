@@ -1,11 +1,9 @@
-Dict = ["orange", "correct", "rememberer", "moon", "ants"],
-Def =  ["https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s", "https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s", "https://www.youtube.com/watch?v=hS_AXRRnIzM", "https://www.youtube.com/watch?v=K3X2Fv-c3Fc", "https://www.youtube.com/watch?v=Et6itTuJSYY"],
 
 
 module.exports = {
     //Setting up dictionary
-    // Dict: ["orange", "correct", "rememberer", "moon", "ants"],
-    // Def: ["https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s", "https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s", "https://www.youtube.com/watch?v=hS_AXRRnIzM", "https://www.youtube.com/watch?v=K3X2Fv-c3Fc", "https://www.youtube.com/watch?v=Et6itTuJSYY"],
+    Dict: ['orange', 'correct', 'rememberer', 'moon', 'ants'],
+    Def: ['https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s', 'https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s', 'https://www.youtube.com/watch?v=hS_AXRRnIzM', 'https://www.youtube.com/watch?v=K3X2Fv-c3Fc', 'https://www.youtube.com/watch?v=Et6itTuJSYY'],
     Index: 0,
 
 
@@ -15,10 +13,10 @@ module.exports = {
 
     execute(message, args){
         
-        if(!this.Dict.includes(args)) return;
+        if(!this.Dict.includes(args[0])) return;
         //Now allocate the fucking thing
-        Index = this.Dict.indexOf(args)
+        var Index = this.Dict.indexOf(args[0])
 
-        message.author.send("This should be a video link, but something went wrong...");
+        message.author.send(`Video: ${Def[Index]}`);
     }
 }

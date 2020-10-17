@@ -22,7 +22,7 @@ client.once('ready', () => {
 client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).trim().split(' ');
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
 //Adding all the commands
@@ -37,8 +37,8 @@ client.on('message', message =>{
             return message.channel.send(`This command requires an argument, ${message.author}!`)
         }
 
-        message.channel.send(`Arguments: ${args}`);
-        //client.commands.get('videos').execute(message, args);
+        //message.channel.send(`Arguments: ${args}`);
+        client.commands.get('videos').execute(message, args);
     }
     
 
