@@ -85,7 +85,13 @@ client.on('message', async message =>{
     if(command === 'wiki' || command === 'wikipedia' || command === 'search'){
         var SearchTerm = args[0];
 
-        client.command.get('search').execute(message, SearchTerm);
+        var Wiki = "en.wikipedia.org/wiki/";
+        var Output = Wiki.concat(SearchTerm);
+        
+
+        message.author.send(Output);
+        
+        //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
     }
 
 
