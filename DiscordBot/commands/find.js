@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { Output } = require('./topic');
 const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
 
 module.exports = {
@@ -10,7 +11,8 @@ module.exports = {
 
         subs.array.forEach(file => {
             if(fs.readFile(file).includes("hello")){
-                var Output = file;
+                var TempThing = file;
+                message.author.send(TempThing);
             }
         });
 
@@ -18,6 +20,6 @@ module.exports = {
         // var Output = Wiki.concat(SearchTerm);
         
 
-        message.author.send(Output);
+        //message.author.send();
     }
 }
