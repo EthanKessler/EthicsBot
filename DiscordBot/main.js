@@ -104,15 +104,13 @@ client.on('message', async message =>{
         const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
         for(const subfile of subs){
             message.channel.send(`loop is working: ${subfile}`);
-            var filetext = fs.readFileSync(`./subs.${subfile}`, 'utf8')
+            var filetext = fs.readFileSync(`./subs.${subfile}`, 'utf8');
                 
             if(length(filetext)){
-                message.channel.send("I can read this file")
+                message.channel.send("I can read this file");
             }
-            }
-            
         };
-    }
+    };
 
 
 
