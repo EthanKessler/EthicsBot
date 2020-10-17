@@ -97,6 +97,9 @@ client.on('message', async message =>{
     if(command === 'quote' || command === 'quotes'){
         client.commands.get('quote').execute(message, args);
     }
+    if(command === 'find'){
+        client.commands.get('find').execute(message, args);
+    }
 
 
 
