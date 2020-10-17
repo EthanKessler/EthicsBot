@@ -16,7 +16,8 @@ module.exports = {
         if(!this.Dict.includes(args[0])) return;
         //Now allocate the fucking thing
         var Index = this.Dict.indexOf(args[0])
+        var Output = Def[Index]
 
-        message.author.send(`Video: ${Def[Index]}`);
+        message.author.send(`Video: ${Output}`);
     }
 }
