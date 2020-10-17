@@ -109,7 +109,11 @@ client.on('message', async message =>{
             //message.channel.send(`${subs.indexOf(subfile)} out of ${subs.length}`);
             if(filetext.includes(args[0])){
                 //message.channel.send("I can read this file");
-                FoundVideos.push(subfile);
+                var VideoToPush = subfile.split("-");
+
+
+
+                FoundVideos.push(VideoToPush[0]);
             }
         };
 
