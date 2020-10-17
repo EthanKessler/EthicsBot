@@ -100,9 +100,10 @@ client.on('message', async message =>{
     if(command === 'find'){
         //client.commands.get('find').execute(message, args);
 
+        message.channel.send("Command is executing");
         const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
         subs.array.forEach(subfile => {
-            message.channel.send(subfile);
+            message.channel.send("Loop is working");
             var filetext = fs.readFileSync(`./subs.${subfile}`, 'utf8', function read(err, data) {
                 if(err) {
                     message.channel.send("That crashed and burned");
