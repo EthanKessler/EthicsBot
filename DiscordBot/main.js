@@ -87,10 +87,12 @@ client.on('message', async message =>{
 
         var Wiki = "en.wikipedia.org/wiki/";
         var Output = Wiki.concat(SearchTerm);
+        var link = new URL(Output);
+        
         
 
-        message.author.send(Output);
-        
+        message.author.send(link);
+
         //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
     }
 
