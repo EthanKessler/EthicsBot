@@ -93,7 +93,7 @@ client.on("messageReactionAdd", async (reaction, user) =>{
 
     if (reaction.message.channel.id === "766392101633523765"){
         if (reaction.emoji.name === '1️⃣') {
-            await raction.message.guild.members.cache.get(user,id).send("Pong") 
+            await reaction.message.guild.members.cache.get(user.id).send("Pong") 
         }
     }
 })
