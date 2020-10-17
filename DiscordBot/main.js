@@ -44,7 +44,7 @@ client.on('message', async message =>{
         .setDescription('React to select a video')
         .setColor('GREEN')
         let msgEmbed = await message.channel.send(embed)
-        msgEmbed.react('keycap: 1')
+        msgEmbed.react('1️⃣', '2️⃣')
 
         //From here on should be in the isolated file
         const VideoDict = ['orange', 'correct', 'rememberer', 'moon', 'ants'];
