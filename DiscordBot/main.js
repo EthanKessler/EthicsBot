@@ -102,7 +102,7 @@ client.on('message', async message =>{
 
         const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
         subs.array.forEach(subfile => {
-
+            message.channel.send(subfile);
             var filetext = fs.readFileSync(`./subs.${subfile}`, 'utf8', function read(err, data) {
                 if(err) {
                     message.channel.send("That crashed and burned");
