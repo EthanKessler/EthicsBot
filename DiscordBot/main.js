@@ -92,8 +92,8 @@ client.on('message', async message =>{
     if(command === 'status'){
         if(message.author.id !== '527872052716371999') return;
 
-        String(args);
-        client.user.setActivity(args);
+        var activity = args.join(" ");
+        client.user.setActivity(activity);
     }
 });
 
@@ -109,16 +109,20 @@ client.on("messageReactionAdd", async (reaction, user) =>{
             reaction.message.delete();
         }
         if (reaction.emoji.name === '2️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[1]}`) 
+            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[1]}`)
+            reaction.message.delete(); 
         }
         if (reaction.emoji.name === '3️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[2]}`) 
+            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[2]}`)
+            reaction.message.delete();
         }
         if (reaction.emoji.name === '4️⃣') {
             await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[3]}`) 
+            reaction.message.delete();
         }
         if (reaction.emoji.name === '5️⃣') {
             await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[4]}`) 
+            reaction.message.delete();
         }
     }
 })
