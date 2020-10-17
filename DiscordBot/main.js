@@ -106,7 +106,7 @@ client.on('message', async message =>{
             message.channel.send(`loop is working: ${subfile}`);
             var filetext = fs.readFileSync(`./subs/${subfile}`, 'utf8');
             
-            message.channel.send("Tried to read file");
+            message.channel.send(`${subs.indexOf(subfile)} out of ${subs.length}`);
             if(filetext.length > 0){
                 message.channel.send("I can read this file");
             }
