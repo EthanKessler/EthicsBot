@@ -37,12 +37,16 @@ client.on('message', message =>{
             return message.channel.send(`This command requires an argument, ${message.author}!`)
         }
 
-        //message.channel.send(`Arguments: ${args}`);
+        message.channel.send(`Arguments: ${args[0]}`);
 
         const VideoDict = ['orange', 'correct', 'rememberer', 'moon', 'ants'];
         const VideoDef = ['https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s', 'https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s', 'https://www.youtube.com/watch?v=hS_AXRRnIzM', 'https://www.youtube.com/watch?v=K3X2Fv-c3Fc', 'https://www.youtube.com/watch?v=Et6itTuJSYY'];
 
-        client.commands.get('videos').execute(message, args, VideoDict, VideoDef);
+        var Index = VideoDict.indexOf(args[0]);
+        var Output = VideoDef[Index];
+
+        message.author.send(`Video: ${Output}`);
+        //client.commands.get('videos').execute(message, args, VideoDict, VideoDef);
     }
     
 

@@ -14,8 +14,8 @@ module.exports = {
 
         //if(!VideoDict.includes(args[0])) return;
         //Now allocate the fucking thing
-        var Index = VideoDict.indexOf(args[0])
-        var Output = VideoDef[Index]
+        var Index = VideoDict.indexOf(args[0]);
+        var Output = VideoDef[Index];
 
         message.author.send(`Video: ${Output}`);
     }
