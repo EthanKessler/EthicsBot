@@ -12,7 +12,7 @@ module.exports = {
 
     execute(message, args, VideoDict, VideoDef){
 
-        if(!VideoDict.includes(args[0])) return;
+        //if(!VideoDict.includes(args[0])) return;
         //Now allocate the fucking thing
         var Index = VideoDict.indexOf(args[0])
         var Output = VideoDef[Index]
