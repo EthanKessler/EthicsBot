@@ -103,17 +103,13 @@ client.on('message', async message =>{
         message.channel.send("Command is executing");
         const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
         for(const subfile of subs){
-            message.channel.send("Loop is working");
-            var filetext = fs.readFileSync(`./subs.${subfile}`, 'utf8', function read(err, data) {
-                if(err) {
-                    message.channel.send("That crashed and burned");
-                }
-                var content = data;
-
-                if(length(content)){
-                    message.channel.send("Ok so apparently this works");
-                }
-            })
+            message.channel.send(`loop is working: ${subfile}`);
+            var filetext = fs.readFileSync(`./subs.${subfile}`, 'utf8')
+                
+            if(length(filetext)){
+                message.channel.send("I can read this file")
+            }
+            }
             
         };
     }
