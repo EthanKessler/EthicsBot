@@ -99,18 +99,22 @@ client.on('message', async message =>{
     }
     if(command === 'find'){
         //client.commands.get('find').execute(message, args);
-
-        message.channel.send("Command is executing");
+        const FoundVideos = [];
+        message.channel.send("[BETA] Your request is being preocessed. Due to the plethora of high calibre content produced over the past few years, the request may take up to 5 minutes to complete. Maybe enjoy a cup of coffee.");
         const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
         for(const subfile of subs){
-            message.channel.send(`loop is working: ${subfile}`);
+            //message.channel.send(`loop is working: ${subfile}`);
             var filetext = fs.readFileSync(`./subs/${subfile}`, 'utf8');
             
-            message.channel.send(`${subs.indexOf(subfile)} out of ${subs.length}`);
-            if(filetext.length > 0){
-                message.channel.send("I can read this file");
+            //message.channel.send(`${subs.indexOf(subfile)} out of ${subs.length}`);
+            if(filetext.includes(args[0])){
+                //message.channel.send("I can read this file");
+                FoundVideos.push(subfile);
             }
         };
+
+        var RelevantOutput = FoundVideos.toString();
+        message.author.send(`Relevant videos to keyword (${args[0]}): ${RelevantOutput}`);
     };
 
 
