@@ -76,7 +76,12 @@ client.on('message', async message =>{
         // message.author.send(`Video: ${Output}`); //Cant get it to work in the fucking file
         //client.commands.get('videos').execute(message, args, VideoDict, VideoDef);
     }
-    
+    if(command === 'donate'){
+        client.commands.get('invite').execute(message, args);
+    }
+    if(command === 'mystery'){
+        
+    }
 
 
 
