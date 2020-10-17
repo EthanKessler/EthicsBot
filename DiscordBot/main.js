@@ -6,6 +6,11 @@ const prefix = '.';
 
 const fs = require('fs');
 
+//These are for the video selection system... idk man
+const VideoDict = ['orange', 'correct', 'rememberer', 'moon', 'ants'];
+const VideoDef = ['https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s', 'https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s', 'https://www.youtube.com/watch?v=hS_AXRRnIzM', 'https://www.youtube.com/watch?v=K3X2Fv-c3Fc', 'https://www.youtube.com/watch?v=Et6itTuJSYY'];
+//End of random shit
+
 client.commands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'))
@@ -39,9 +44,16 @@ client.on('message', async message =>{
 
         // message.channel.send(`Arguments: ${args[0]}`);
 
+        //Set description
+        const VideoSelect = `1️⃣ ${VideoDict[0]} \n`
+                            + `2️⃣ ${VideoDict[1]} \n`
+                            + `3️⃣ ${VideoDict[2]} \n`
+                            + `4️⃣ ${VideoDict[3]} \n`
+                            + `5️⃣ ${VideoDict[4]} \n`;
+
         let embed = new Discord.MessageEmbed()
         .setTitle('Videos')
-        .setDescription('React to select a video')
+        .setDescription('React to select a video: \n')
         .setColor('GREEN')
         let msgEmbed = await message.channel.send(embed)
         msgEmbed.react('1️⃣')
@@ -52,8 +64,8 @@ client.on('message', async message =>{
 
 
         //From here on should be in the isolated file
-        const VideoDict = ['orange', 'correct', 'rememberer', 'moon', 'ants'];
-        const VideoDef = ['https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s', 'https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s', 'https://www.youtube.com/watch?v=hS_AXRRnIzM', 'https://www.youtube.com/watch?v=K3X2Fv-c3Fc', 'https://www.youtube.com/watch?v=Et6itTuJSYY'];
+        // const VideoDict = ['orange', 'correct', 'rememberer', 'moon', 'ants'];
+        // const VideoDef = ['https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s', 'https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s', 'https://www.youtube.com/watch?v=hS_AXRRnIzM', 'https://www.youtube.com/watch?v=K3X2Fv-c3Fc', 'https://www.youtube.com/watch?v=Et6itTuJSYY'];
 
         // if(!VideoDict.includes(args[0])){
         //     return message.author.send(`Woah there! that video isn't in my collection right now. Try: ${Arrays.toString(VideoDict)}`)
@@ -93,7 +105,19 @@ client.on("messageReactionAdd", async (reaction, user) =>{
 
     if (reaction.message.channel.id === "766392101633523765"){
         if (reaction.emoji.name === '1️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).send("Pong") 
+            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[0]}`) 
+        }
+        if (reaction.emoji.name === '2️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[1]}`) 
+        }
+        if (reaction.emoji.name === '3️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[2]}`) 
+        }
+        if (reaction.emoji.name === '4️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[3]}`) 
+        }
+        if (reaction.emoji.name === '5️⃣') {
+            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[4]}`) 
         }
     }
 })
