@@ -98,7 +98,15 @@ client.on('message', async message =>{
         client.commands.get('quote').execute(message, args);
     }
     if(command === 'find'){
-        client.commands.get('find').execute(message, args);
+        //client.commands.get('find').execute(message, args);
+
+        const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
+        subs.array.forEach(file => {
+            if(fs.readFile(file).includes("hello")){
+                var TempThing = file;
+                message.author.send(TempThing);
+            }
+        });
     }
 
 
