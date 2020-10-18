@@ -141,7 +141,7 @@ client.on('message', async message =>{
             { name: '.quote', value: 'Sends a link to a library of quotes'}
         )
         .setColor('GREEN')
-        .setImage(['./Assets/exurb1a.jpg'])
+        //.setImage(['./Assets/exurb1a.jpg'])
         .setTimestamp()
         .setFooter('Made by EthanKessler', 'https://ethankessler.itch.io/')
         let HelpmsgEmbed = await message.channel.send(Helpembed)
