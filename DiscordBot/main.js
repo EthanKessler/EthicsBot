@@ -107,7 +107,7 @@ client.on('message', async message =>{
             var filetext = fs.readFileSync(`./subs/${subfile}`, 'utf8');
             
             //message.channel.send(`${subs.indexOf(subfile)} out of ${subs.length}`);
-            if(filetext.includes(args[0])){
+            if(filetext.toLowerCase().includes(args[0])){
                 //message.channel.send("I can read this file");
                 var VideoToPush = subfile.split("-");
 
