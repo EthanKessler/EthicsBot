@@ -20,16 +20,19 @@ const PhilosophyTopics = ["What is the meaning of a good life?", "Have we become
 const TheologyTopics = ["Does god exist?", "Is it moral to teach religion in schools?", "Did a greater being create the universe?", "Is creation 'ex nihilo' possible?", "Is there an afterlife?",
                         "Do humans exercise free will?", "Does determinism excuse us from moral obligation?", "Does the concept of reincarnation (Buddhism) make sense to you?",
                         "It is 'perfectly consistent' that god should have made the laws of physics (paraphrased, Isaac Newton)", "SHOULD god influence our daily lives? Or even the course of history?",
-                        "Deism vs Theism?", "Does 'Origional sin' exist?"]
+                        "Deism vs Theism?", "Does 'Origional sin' exist?"];
 
 const PoliticalTopics = ["Gun control", "Abortion", "Religios freedom", "Freedom of speech", "Animal rights", "Suspension of human rights in the interest of public order",
                         "Vaccines", "Rights to privacy", "Global Climate Change", "Capital punishment", "Immigration reform", "The trump presidency", "Discrimination in politics", "Positive discrimination (Does it work?)",
                         "Cancel culture", "The Israeli-Palestinian Conflict", "Universal Healthcare", "Political Censorship", "Redaction of government documents and witholding of information from general public",
-                        "Social influencers using charity for leverage", "Universal ban on smoking", "Drug laws", "What steps should governments take to improve mental health?", ""]
+                        "Social influencers using charity for leverage", "Universal ban on smoking", "Drug laws", "What steps should governments take to improve mental health?", ""];
 
-const HistoricalTopics = ["In your opinion, what was the most significant event in history?", "To what extent was the second world war caused by the punishments enforced after WWI."]
+const HistoricalTopics = ["In your opinion, what was the most significant event in history?", "To what extent was the second world war caused by the punishments enforced after WWI."];
 
-
+const GeneralTopics = ["How's your day going?", "What was the best thing about today?", "What book are you reading?", "What did you eat for breakfast?", "What's your favourite film?",
+                        "What do you do to get rid of stress?", "What three words best describe you?", "What’s your favorite way to waste time?", "Do you have any pets? What are their names?",
+                        "When was the last time you worked incredibly hard?", "If you opened a business, what kind of business would it be?", "Are you a very organized person?", "What do you do to improve your mood when you are in a bad mood?",
+                        "What are some things you want to accomplish before you die?", "What are you best at?", "What weird or useless talent do you have?", "What job do you do?", "What video games do you play?"];
 
 module.exports = {
     name: 'topic',
@@ -37,9 +40,27 @@ module.exports = {
 
     execute(message, args, channelID){
 
-        var Output = `Discuss: ${PhilosophyTopics[Math.floor(Math.random() * PhilosophyTopics.length)]}`;
-        message.channel.send(Output);
+        if(channelID === "674332146940379141"){
+            var Output = `Discuss: ${ScienceTopics[Math.floor(Math.random() * ScienceTopics.length)]}`;
+        }
+        if(channelID === "674332165227675668"){
+            var Output = `Discuss: ${PhilosophyTopics[Math.floor(Math.random() * PhilosophyTopics.length)]}`;
+        }
+        if(channelID === "740951767399006329"){
+            var Output = `Discuss: ${TheologyTopics[Math.floor(Math.random() * TheologyTopics.length)]}`;
+        }
+        if(channelID === "728655406758625282"){
+            var Output = `Discuss: ${PoliticalTopics[Math.floor(Math.random() * PoliticalTopics.length)]}`;
+        }
+        if(channelID === "726072510218633237"){
+            var Output = `Discuss: ${HistoricalTopics[Math.floor(Math.random() * HistoricalTopics.length)]}`;
+        }
+        if(channelID === "674332038182207578"){
+            var Output = `Discuss: ${GeneralTopics[Math.floor(Math.random() * GeneralTopics.length)]}`;
+        }
         
-        
+        if(Output){
+            message.channel.send(Output);
+        }
     }
 }

@@ -25,7 +25,7 @@ client.once('ready', () => {
 });
 
 client.on('message', async message =>{
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
+    if(!message.content.startsWith(prefix) || message.author.bot || message.author.id !== "527872052716371999") return; //Must remove 3rd argument
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
