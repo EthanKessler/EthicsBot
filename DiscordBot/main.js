@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]});
 
-const prefix = '.t';
+const prefix = '+';
 
 const fs = require('fs');
 
