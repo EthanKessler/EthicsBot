@@ -100,7 +100,7 @@ client.on('message', async message =>{
     if(command === 'find'){
         //client.commands.get('find').execute(message, args);
         const FoundVideos = [];
-        message.channel.send("[BETA] Your request is being preocessed. Due to the plethora of high calibre content produced over the past few years, the request may take up to 5 minutes to complete. Maybe enjoy a cup of coffee.");
+        message.channel.send("[BETA] Your request is being processed. Due to the plethora of high calibre content produced over the past few years, the request may take up to 5 minutes to complete. Maybe enjoy a cup of coffee.");
         const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
         for(const subfile of subs){
             //message.channel.send(`loop is working: ${subfile}`);
@@ -112,8 +112,9 @@ client.on('message', async message =>{
                 var VideoToPush = subfile.split("-");
 
 
-
-                FoundVideos.push(VideoToPush[0]);
+                if(VideoToPush[0].length > 0){
+                    FoundVideos.push(VideoToPush[0]);
+                }
             }
         };
 
