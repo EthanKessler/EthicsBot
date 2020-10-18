@@ -145,7 +145,7 @@ client.on('message', async message =>{
         .setTimestamp()
         .setFooter('Made by EthanKessler', 'https://ethankessler.itch.io/')
         let HelpmsgEmbed = await message.channel.send(Helpembed)
-        HelpmsgEmbed.delete(10);
+        HelpmsgEmbed.delete(1000);
     }
 
 ////ADMIN ONLY////
