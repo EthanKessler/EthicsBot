@@ -136,7 +136,7 @@ client.on('message', async message =>{
         .setDescription(`Relevant videos to keyword (${args[0]}): ${RelevantOutput}`)
         .addFields(FoundFields)
         .setColor('GREEN')
-        let FoundmsgEmbed = await message.channel.send(embed)
+        let FoundmsgEmbed = await message.author.send(FoundEmbed)
     };
     if(command === 'yt' || command === 'youtube'){
         client.commands.get('youtube').execute(message, args);
