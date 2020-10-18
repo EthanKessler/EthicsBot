@@ -105,9 +105,10 @@ client.on('message', async message =>{
         for(const subfile of subs){
             //message.channel.send(`loop is working: ${subfile}`);
             var filetext = fs.readFileSync(`./subs/${subfile}`, 'utf8');
+            Finaltext = filetext.toLowerCase()
             
             //message.channel.send(`${subs.indexOf(subfile)} out of ${subs.length}`);
-            if(filetext.toLowerCase().includes(args[0])){
+            if(Finaltext.includes(args[0])){
                 //message.channel.send("I can read this file");
                 var VideoToPush = subfile.split("-");
 
