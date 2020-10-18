@@ -114,6 +114,7 @@ client.on('message', async message =>{
 
                 if(VideoToPush[0].length > 0){
                     FoundVideos.push(VideoToPush[0]);
+                    message.channel.send(VideoToPush[1]);
                 }
             }
         };

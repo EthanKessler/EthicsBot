@@ -22,7 +22,10 @@ const TheologyTopics = ["Does god exist?", "Is it moral to teach religion in sch
                         "It is 'perfectly consistent' that god should have made the laws of physics (paraphrased, Isaac Newton)", "SHOULD god influence our daily lives? Or even the course of history?",
                         "Deism vs Theism?", "Does 'Origional sin' exist?"]
 
-
+const PoliticalTopics = ["Gun control", "Abortion", "Religios freedom", "Freedom of speech", "Animal rights", "Suspension of human rights in the interest of public order",
+                        "Vaccines", "Rights to privacy", "Global Climate Change", "Capital punishment", "Immigration reform", "The trump presidency", "Discrimination in politics", "Positive discrimination (Does it work?)",
+                        "Cancel culture", "The Israeli-Palestinian Conflict", "Universal Healthcare", "Political Censorship", "Redaction of government documents and witholding of information from general public",
+                        "Social influencers using charity for leverage", "Universal ban on smoking", "Drug laws", "What steps should governments take to improve mental health?", ""]
 
 module.exports = {
     name: 'topic',
