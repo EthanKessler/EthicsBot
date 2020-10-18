@@ -122,8 +122,8 @@ client.on('message', async message =>{
                     // message.channel.send(FoundVideoLink);
 
                     FoundFields.push({ name: VideoToPush[0], value: FoundVideoLink})
-                }
-            }
+                };
+            };
         };
 
         var RelevantOutput = FoundVideos.toString();
@@ -135,8 +135,8 @@ client.on('message', async message =>{
         .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
         .setDescription(`Relevant videos to keyword (${args[0]}): ${RelevantOutput}`)
         .addFields(FoundFields)
-        .setColor('GREEN')
-        let FoundmsgEmbed = await message.author.send(FoundEmbed)
+        .setColor('GREEN');
+        let FoundmsgEmbed = await message.author.send(FoundEmbed);
     };
     if(command === 'yt' || command === 'youtube'){
         client.commands.get('youtube').execute(message, args);
