@@ -105,21 +105,21 @@ client.on('message', async message =>{
         for(const subfile of subs){
             //message.channel.send(`loop is working: ${subfile}`);
             var filetext = fs.readFileSync(`./subs/${subfile}`, 'utf8');
-            Finaltext = filetext.toLowerCase()
-            var Keyword = args[0].toLowerCase()
+            Finaltext = filetext.toLowerCase();
+            var Keyword = args[0].toLowerCase();
             var LinkHead = "https://www.youtube.com/watch?v="
             
             //message.channel.send(`${subs.indexOf(subfile)} out of ${subs.length}`);
             if(Finaltext.includes(Keyword)){
                 //message.channel.send("I can read this file");
                 var VideoToPush = subfile.split("-");
-                var LinkTail = VideoToPush[1].split(".")
+                var LinkTail = VideoToPush[1].split(".");
 
-                var FoundVideoLink = LinkHead.concat(LinkTail)
+                var FoundVideoLink = LinkHead.concat(LinkTail);
 
                 if(VideoToPush[0].length > 0){
                     FoundVideos.push(VideoToPush[0]);
-                    FoundVideos.push(FoundVideoLink);
+                    message.channel.send(FoundVideoLink);
                 }
             }
         };
