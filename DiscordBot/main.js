@@ -99,7 +99,7 @@ client.on('message', async message =>{
     };
     if(command === 'find'){
         //client.commands.get('find').execute(message, args);
-        const FoundVideos = [];
+        const FoundFields = [];
         message.channel.send("[BETA] Your request is being processed. Due to the plethora of high calibre content produced over the past few years, the request may take up to 5 minutes to complete. Maybe enjoy a cup of coffee.");
         const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
         for(const subfile of subs){
@@ -118,14 +118,25 @@ client.on('message', async message =>{
                 var FoundVideoLink = LinkHead.concat(LinkTail);
 
                 if(VideoToPush[0].length > 0){
-                    FoundVideos.push(VideoToPush[0]);
-                    message.channel.send(FoundVideoLink);
+                    // FoundFields.push(VideoToPush[0]);
+                    // message.channel.send(FoundVideoLink);
+
+                    FoundFields.push({ name: VideoToPush[0], value: FoundVideoLink})
                 }
             }
         };
 
         var RelevantOutput = FoundVideos.toString();
-        message.author.send(`Relevant videos to keyword (${args[0]}): ${RelevantOutput}`);
+        //message.author.send(`Relevant videos to keyword (${args[0]}): ${RelevantOutput}`);
+
+        //Lets make it an embed
+        let FoundEmbed = new Discord.MessageEmbed()
+        .setTitle('I found videos!')
+        .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
+        .setDescription(`Relevant videos to keyword (${args[0]}): ${RelevantOutput}`)
+        .addFields(FoundFields)
+        .setColor('GREEN')
+        let FoundmsgEmbed = await message.channel.send(embed)
     };
     if(command === 'yt' || command === 'youtube'){
         client.commands.get('youtube').execute(message, args);
