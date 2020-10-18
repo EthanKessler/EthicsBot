@@ -115,7 +115,7 @@ client.on('message', async message =>{
                 var VideoToPush = subfile.split("-");
                 var LinkTail = VideoToPush[1].split(".");
 
-                var FoundVideoLink = LinkHead.concat(LinkTail);
+                var FoundVideoLink = LinkHead.concat(LinkTail[0]);
 
                 if(VideoToPush[0].length > 0){
                     // FoundFields.push(VideoToPush[0]);
