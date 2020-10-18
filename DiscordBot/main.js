@@ -127,13 +127,13 @@ client.on('message', async message =>{
         };
 
         var RelevantOutput = FoundVideos.toString();
-        //message.author.send(`Relevant videos to keyword (${args[0]}): ${RelevantOutput}`);
+        message.author.send(`Now to make the embed with: ${FoundFields}`);
 
         //Lets make it an embed
         let FoundEmbed = new Discord.MessageEmbed()
         .setTitle('I found videos!')
         .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
-        .setDescription(`Relevant videos to keyword (${args[0]}): ${RelevantOutput}`)
+        .setDescription(`Relevant videos to keyword (${args[0]})`)
         .addFields(FoundFields)
         .setColor('GREEN');
         let FoundmsgEmbed = await message.author.send(FoundEmbed);
