@@ -143,7 +143,7 @@ client.on('message', async message =>{
         .setColor('GREEN')
         //.setImage(['./Assets/exurb1a.jpg'])
         .setTimestamp()
-        .setFooter('https://ethankessler.itch.io/')
+        .setAuthor('EthanKessler', null, 'https://ethankessler.itch.io/')
         let HelpmsgEmbed = await message.channel.send(Helpembed)
         HelpmsgEmbed.delete(120);
     }
