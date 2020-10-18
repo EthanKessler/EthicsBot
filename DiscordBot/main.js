@@ -164,6 +164,9 @@ client.on('message', async message =>{
         let HelpmsgEmbed = await message.channel.send(Helpembed)
         HelpmsgEmbed.delete({ timeout: 60000});
     }
+    if(command === 'topic'){
+        client.commands.get('topic').execute(message, args, message.channel.id);
+    }
 
 ////ADMIN ONLY////
 //Bot kill switch

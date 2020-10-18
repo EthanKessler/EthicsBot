@@ -27,15 +27,19 @@ const PoliticalTopics = ["Gun control", "Abortion", "Religios freedom", "Freedom
                         "Cancel culture", "The Israeli-Palestinian Conflict", "Universal Healthcare", "Political Censorship", "Redaction of government documents and witholding of information from general public",
                         "Social influencers using charity for leverage", "Universal ban on smoking", "Drug laws", "What steps should governments take to improve mental health?", ""]
 
+const HistoricalTopics = ["In your opinion, what was the most significant event in history?", "To what extent was the second world war caused by the punishments enforced after WWI."]
+
+
+
 module.exports = {
     name: 'topic',
     description: "sends channel specific topic",
 
-    //Temp solution
-    Output: 'https://discord.gg/Z8SmX5C',
+    execute(message, args, channelID){
 
-    execute(message, args){
-
-        message.author.send(this.Output);
+        var Output = `Discuss: ${PhilosophyTopics[Math.floor(Math.random() * PhilosophyTopics.length)]}`;
+        message.channel.send(Output);
+        
+        
     }
 }
