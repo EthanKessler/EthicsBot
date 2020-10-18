@@ -143,9 +143,9 @@ client.on('message', async message =>{
         .setColor('GREEN')
         //.setImage(['./Assets/exurb1a.jpg'])
         .setTimestamp()
-        .setFooter('Made by EthanKessler', 'https://ethankessler.itch.io/')
+        .setFooter('https://ethankessler.itch.io/')
         let HelpmsgEmbed = await message.channel.send(Helpembed)
-        HelpmsgEmbed.delete(1000);
+        HelpmsgEmbed.delete(120);
     }
 
 ////ADMIN ONLY////
