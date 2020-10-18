@@ -124,7 +124,7 @@ client.on('message', async message =>{
     if(command === 'yt' || command === 'youtube'){
         client.commands.get('youtube').execute(message, args);
     };
-    if(command === 'help'){
+    if(command === 'help' && message.channel.id === '766392101633523765'){
         let Helpembed = new Discord.MessageEmbed()
         .setTitle('Commands')
         .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
@@ -145,7 +145,7 @@ client.on('message', async message =>{
         .setTimestamp()
         .setAuthor('EthanKessler', null, 'https://ethankessler.itch.io/')
         let HelpmsgEmbed = await message.channel.send(Helpembed)
-        HelpmsgEmbed.delete(120);
+        HelpmsgEmbed.delete({ timeout: 60000});
     }
 
 ////ADMIN ONLY////
