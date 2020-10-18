@@ -126,7 +126,7 @@ client.on('message', async message =>{
             };
         };
 
-        var RelevantOutput = FoundVideos.toString();
+        //var RelevantOutput = FoundVideos.toString();
         message.author.send(`Now to make the embed with: ${FoundFields}`);
 
         //Lets make it an embed
