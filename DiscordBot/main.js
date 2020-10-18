@@ -6,7 +6,7 @@ const prefix = '.';
 
 const fs = require('fs');
 
-//These are for the video selection system... idk man
+//These are for the video selection system... idk man REWORK
 const VideoDict = ["There's No Such Thing As Orange", 'How to Be Correct About Everything All the Time', 'The Rememberer', 'The Moon is a Door to Forever', 'The Ants'];
 const VideoDef = ['https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s', 'https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s', 'https://www.youtube.com/watch?v=hS_AXRRnIzM', 'https://www.youtube.com/watch?v=K3X2Fv-c3Fc', 'https://www.youtube.com/watch?v=Et6itTuJSYY'];
 //End of random shit
@@ -33,10 +33,10 @@ client.on('message', async message =>{
 //Adding all the commands
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
-    }
+    };
     if(command === 'invite'){
         client.commands.get('invite').execute(message, args);
-    }
+    };
     if(command === 'video'){
         // if(!args.length){
         //     return message.channel.send(`Err: This command requires an argument!`)
@@ -75,14 +75,14 @@ client.on('message', async message =>{
 
         // message.author.send(`Video: ${Output}`); //Cant get it to work in the fucking file
         //client.commands.get('videos').execute(message, args, VideoDict, VideoDef);
-    }
+    };
     if(command === 'donate'){
         client.commands.get('donate').execute(message, args);
-    }
+    };
     if(command === 'mystery'){
         client.commands.get('mystery').execute(message, args);
-    }
-    if(command === 'wiki' || command === 'wikipedia' || command === 'search'){
+    };
+    if(command === 'define'){
         var SearchTerm = args[0];
 
         var Wiki = "https://en.wikipedia.org/wiki/";
@@ -93,10 +93,10 @@ client.on('message', async message =>{
         message.author.send(`Definition: ${Output}`);
 
         //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
-    }
+    };
     if(command === 'quote' || command === 'quotes'){
         client.commands.get('quote').execute(message, args);
-    }
+    };
     if(command === 'find'){
         //client.commands.get('find').execute(message, args);
         const FoundVideos = [];
@@ -121,8 +121,32 @@ client.on('message', async message =>{
         var RelevantOutput = FoundVideos.toString();
         message.author.send(`Relevant videos to keyword (${args[0]}): ${RelevantOutput}`);
     };
-
-
+    if(command === 'yt' || command === 'youtube'){
+        client.commands.get('youtube').execute(message, args);
+    };
+    if(command === 'help'){
+        let Helpembed = new Discord.MessageEmbed()
+        .setTitle('Commands')
+        .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
+        .addFields(
+            { name: '.help', value: 'Displays a list of possible commands'},
+            { name: '.invite', value: 'Sends an invite link for the server'},
+            { name: '.mystery', value: 'Sends a mystery link'},
+            { name: '.define (+ Search term)', value: 'Defines the word provided. (For example: .define Charles_Darwin)'},
+            { name: '.ping', value: 'pong'},
+            { name: '.video', value: 'Displays a list of the 5 most recent videos'},
+            { name: '.donate', value: 'Sends a link to the Exurb1a patreon'},
+            { name: '.yt', value: 'Sends a link to the Exurb1a channel'},
+            { name: '.find (+ Search term)', value: 'Searches Exurb1a videos for the search term. Ever wondered where that quote is from?'},
+            { name: '.quote', value: 'Sends a link to a library of quotes'}
+        )
+        .setColor('GREEN')
+        .setImage(['./Assets/exurb1a.jpg'])
+        .setTimestamp()
+        .setFooter('Made by EthanKessler', 'https://ethankessler.itch.io/')
+        let HelpmsgEmbed = await message.channel.send(Helpembed)
+        HelpmsgEmbed.delete(10);
+    }
 
 ////ADMIN ONLY////
 //Bot kill switch
