@@ -219,6 +219,14 @@ client.on('message', async message =>{
             message.channel.send("Access allowed");
         }
     }
+    if(command === "allowrandom" && Whitelist.includes(message.author.id)){
+        if(AllowRandomPosts){
+            AllowRandomPosts = false;
+        }
+        if(!AllowRandomPosts){
+            AllowRandomPosts = true;
+        }
+    }
 });
 
 if(AllowRandomPosts){
