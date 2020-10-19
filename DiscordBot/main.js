@@ -7,6 +7,7 @@ const prefix = '+';
 const fs = require('fs');
 
 const CoolDown = new Set();
+const TopicCool = "TopicCoolDown";
 
 //These are for the video selection system... idk man REWORK
 const VideoDict = ["There's No Such Thing As Orange", 'How to Be Correct About Everything All the Time', 'The Rememberer', 'The Moon is a Door to Forever', 'The Ants'];
@@ -168,15 +169,15 @@ client.on('message', async message =>{
     }
     if(command === 'topic'){
 
-        if(CoolDown.has("topicCooldown")){
+        if(CoolDown.has(TopicCool)){
             msg.channel.send("Wait 1 minute before attempting to use this command again!")
-        } else{
+        } else {
             client.commands.get('topic').execute(message, args, message.channel.id);
 
-            CoolDown.add("topicCooldown");
+            CoolDown.add(TopicCool);
             setTimeout(() => {
                 //Removes the cooldown after 1 minute
-                CoolDown.delete("topicCooldown");
+                CoolDown.delete(TopicCool);
             }, 60000);
         }
 
