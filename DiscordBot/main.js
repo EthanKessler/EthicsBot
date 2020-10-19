@@ -238,6 +238,9 @@ client.on('message', async message =>{
             //test.send("random shit here");
         }
     }
+    if(command === "sendrandom" && message.author.id === '527872052716371999'){
+        SendRandomMessage();
+    }
 });
 
 function RandomCrap(Waittime){
@@ -245,7 +248,16 @@ function RandomCrap(Waittime){
         var test = client.channels.cache.get('674332038182207578');
         //test.send("executing");
         //Sending random message
-        const RandomMessages = ["Where did I leave my knife?", "I hope no one saw that...", "Why?", "Who am I?", "Where's all the milk?", "Fuck you Dyno...",
+        SendRandomMessage();
+
+
+    },Waittime);
+}
+
+
+function SendRandomMessage(){
+    var ChannelToSendIn = client.channels.cache.get('674332038182207578');
+    const RandomMessages = ["Where did I leave my knife?", "I hope no one saw that...", "Why?", "Who am I?", "Where's all the milk?", "Fuck you Dyno...",
                                 "This universe is as mad as a bucket of coked up ferrets...", "The suspect has his head placed upon a block, and an axe aimed at his neck. If the man is guilty, the axe will bounce off his neck — so we burn him. If the man is not guilty, the axe will simply slice his head off.",
                                 "Field Marshal Haig is about to make yet another gargantuan effort to move his drinks cabinet six inches closer to Berlin.", "What's the story morning glory?", "There hasn’t been a war run this badly since Olaf the hairy, King of all the Vikings, ordered 80,000 battle helmets with the horns on the inside.",
                                 "Cogito ergo sum... *mutters: 'posh cunts'*", "Eternity in the company of Beelzebub and all his hellish instruments of death will be a picnic compared to five minutes with me – and this pencil.", "The path of my life is strewn with cowpats from the Devil’s own satanic herd.", "When I want your advice, I’ll give you the special signal. Which is me being sectioned under the Mental Health Act.",
@@ -258,16 +270,7 @@ function RandomCrap(Waittime){
                                 "I am not a vegetarian because I love animals; I am a vegetarian because I hate plants.", "I dislike all of you... except my owner... he's ok.", "For the last time Exurb1a i'm not a fucking coaster.", "'Fuck off' is a funny term... what am i being told to do here? Who's off? Where's off?", "Go read a book you doinks", "@ me and face the wrath of... well an angry tortoise", "My cousin goes around with all these elephants on his back... its very *impratchetal*", "You're cute. Albeit by tortoise standards...",
                                 "Go listen to some good music... none of that Exurb1a crap (Im joking master please not the tea cup again)", "For the last time Layla I don't know where i left his body... oh hi mark", "I like your funny words magic man!", "Nothing bad ever happens to the Kennedys", "Chat is running about as smooth as a soviet submarine", "Fuck turtles... NO not that way you fucking...",
                                 "I'll feed your kidneys to a siberian mountain goat", "I've been on my back for about a week now and Exurb1a hasn't noticed...", "I think he's gone...", "I miss WIT", "Exurb1a you lazy sod, talk here more often.", "Exurb1a found my meth lab...", "*pats Exurb1a*, There are many like it but this one is mine"]
-        var queuedquote = RandomMessages[Math.floor(Math.random() * RandomMessages.length)];
-        SendRandomMessage(queuedquote);
-
-
-    },Waittime);
-}
-
-
-function SendRandomMessage(quoteToUse){
-    var ChannelToSendIn = client.channels.cache.get('674332038182207578');
+    var quoteToUse = RandomMessages[Math.floor(Math.random() * RandomMessages.length)];
     ChannelToSendIn.send(quoteToUse)
 };
 
