@@ -231,7 +231,7 @@ client.on('message', async message =>{
             AllowRandomPosts = false;
             message.channel.send("Random shit gone")
         }
-        if(!AllowRandomPosts){
+        else if(!AllowRandomPosts){
             AllowRandomPosts = true;
             //message.channel.send("Random shit here")
             var test = client.channels.cache.get('766392101633523765');
@@ -262,7 +262,7 @@ function RandomCrap(Waittime){
         SendRandomMessage(queuedquote);
 
 
-    },1000);
+    },Waittime);
 }
 
 
