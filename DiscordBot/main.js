@@ -243,7 +243,7 @@ if(AllowRandomPosts){
 
         var ChannelToSendIn = client.channels.cache.get('766392101633523765');
 
-    }, Waittime)
+    }, Waittime);
 
 
 
