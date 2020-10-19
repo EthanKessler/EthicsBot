@@ -62,7 +62,10 @@ module.exports = {
         
         if(Output){
             //message.channel.send(Output);
-            return Output;
+
+            GetTopicOut: () =>{
+                return Output;
+            }
         }
     }
 }

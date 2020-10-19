@@ -173,8 +173,8 @@ client.on('message', async message =>{
         if(CoolDown.includes(TopicCool)){
             message.channel.send("Wait 1 minute before attempting to use this command again!");
         } else {
-            var TopicOut = require("./commands/topic");
-            message.channel.send(TopicOut);
+            var {TopicOut} = require("./commands/topic.js");
+            message.channel.send(TopicOut());
             
             CoolDown.push(TopicCool);
             //message.channel.send("Command Executed");
