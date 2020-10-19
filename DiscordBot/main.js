@@ -37,7 +37,7 @@ client.on('message', async message =>{
     var SplitMessage = message.toString().toLowerCase().split(" ");
     if(SplitMessage.includes("fuck you")){
         message.react("757661899792842902");
-    }
+    };
 
 
 //Adding all the commands
