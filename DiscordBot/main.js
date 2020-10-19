@@ -227,7 +227,9 @@ client.on('message', async message =>{
         }
         if(!AllowRandomPosts){
             AllowRandomPosts = true;
-            message.channel.send("Random shit here")
+            //message.channel.send("Random shit here")
+            var test = client.channels.cache.get('766392101633523765');
+            test.send("random shit here");
         }
     }
 });
@@ -241,7 +243,7 @@ if(AllowRandomPosts){
     var Waittime = (Math.random() * (10000 - 1000));
     setTimeout(function(){
         var test = client.channels.cache.get('766392101633523765');
-        ChannelToSendIn.send("executing");
+        test.send("executing");
         //Sending random message
         const RandomMessages = ["Where did I leave my knife?", "I hope no one saw that...", "Why?", "Who am I?", "Where's all the milk?", "Fuck you Dyno...",
                                 "This universe is as mad as a bucket of coked up ferrets...", "The suspect has his head placed upon a block, and an axe aimed at his neck. If the man is guilty, the axe will bounce off his neck — so we burn him. If the man is not guilty, the axe will simply slice his head off.",
