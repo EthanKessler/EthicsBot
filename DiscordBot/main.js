@@ -43,7 +43,7 @@ client.on('message', async message =>{
     //     message.react("757969401856262287")
     // };
     if(AllowRandomPosts){
-        var Waittime = (Math.random() * (10000 - 1000));
+        var Waittime = (Math.random() * (28800000 - 14400000));
         RandomCrap(Waittime);
     }
 
@@ -229,21 +229,21 @@ client.on('message', async message =>{
     if(command === "allowrandom" && Whitelist.includes(message.author.id)){
         if(AllowRandomPosts){
             AllowRandomPosts = false;
-            message.channel.send("Random shit gone")
+            //message.channel.send("Random shit gone")
         }
         else if(!AllowRandomPosts){
             AllowRandomPosts = true;
             //message.channel.send("Random shit here")
-            var test = client.channels.cache.get('766392101633523765');
-            test.send("random shit here");
+            var test = client.channels.cache.get('674332038182207578');
+            //test.send("random shit here");
         }
     }
 });
 
 function RandomCrap(Waittime){
     setTimeout(function(){
-        var test = client.channels.cache.get('766392101633523765');
-        test.send("executing");
+        var test = client.channels.cache.get('674332038182207578');
+        //test.send("executing");
         //Sending random message
         const RandomMessages = ["Where did I leave my knife?", "I hope no one saw that...", "Why?", "Who am I?", "Where's all the milk?", "Fuck you Dyno...",
                                 "This universe is as mad as a bucket of coked up ferrets...", "The suspect has his head placed upon a block, and an axe aimed at his neck. If the man is guilty, the axe will bounce off his neck — so we burn him. If the man is not guilty, the axe will simply slice his head off.",
@@ -267,7 +267,7 @@ function RandomCrap(Waittime){
 
 
 function SendRandomMessage(quoteToUse){
-    var ChannelToSendIn = client.channels.cache.get('766392101633523765');
+    var ChannelToSendIn = client.channels.cache.get('674332038182207578');
     ChannelToSendIn.send(quoteToUse)
 };
 
