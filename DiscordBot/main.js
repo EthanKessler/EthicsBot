@@ -8,6 +8,7 @@ const fs = require('fs');
 
 const CoolDown = [];
 var AllowAccess = false;
+const Whitelist = ['527872052716371999', '656960915853279247'];
 
 //These are for the video selection system... idk man REWORK
 const VideoDict = ["There's No Such Thing As Orange", 'How to Be Correct About Everything All the Time', 'The Rememberer', 'The Moon is a Door to Forever', 'The Ants'];
@@ -66,6 +67,7 @@ client.on('message', async message =>{
         
 
         message.author.send(`Definition: ${Output}`);
+        message.delete();
 
         //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
     };
@@ -75,7 +77,7 @@ client.on('message', async message =>{
     if(command === 'find' && message.channel.id === '674356809485516803'){
         //client.commands.get('find').execute(message, args);
         const FoundFields = [];
-        message.channel.send("[BETA] Your request is being processed. Due to the plethora of high calibre content produced over the past few years, the request may take up to 5 minutes to complete. Maybe enjoy a cup of coffee.");
+        message.channel.send("[BETA] Your request is being processed. Due to the plethora of high calibre content produced over the past few years, the request may take up to 5 minutes to complete. Maybe enjoy a cup of coffee or tea.");
         const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
         for(const subfile of subs){
             //message.channel.send(`loop is working: ${subfile}`);
@@ -168,14 +170,14 @@ client.on('message', async message =>{
     };
 //set bot status
     if(command === 'status'){
-        if(message.author.id !== '527872052716371999') return;
+        if(!Whitelist.includes(message.author.id)) return;
 
         var activity = args.join(" ");
         client.user.setActivity(activity);
     };
 //Uptime
     if(command === 'uptime'){
-        if(message.author.id !== '527872052716371999') return;
+        if(!Whitelist.includes(message.author.id)) return;
 
         //Setting up time//
         let totalSeconds = (client.uptime / 1000);
@@ -191,7 +193,7 @@ client.on('message', async message =>{
         message.channel.send(uptime)
     }
     if(command === 'allow' || command === 'access'){
-        if(message.author.id !== "527872052716371999") return;
+        if(!Whitelist.includes(message.author.id)) return;
 
         if(AllowAccess){
             AllowAccess = false;
