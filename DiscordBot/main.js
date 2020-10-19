@@ -13,7 +13,7 @@ var CommandsAnswered = 0;
 const CoolDown = [];
 var AllowAccess = false;
 var AllowRandomPosts = false;
-const Whitelist = ['527872052716371999', '656960915853279247'];
+const Whitelist = ['527872052716371999', '208428556106072064', '256131859950338054'];
 
 //These are for the video selection system... idk man REWORK
 const VideoDict = ["There's No Such Thing As Orange", 'How to Be Correct About Everything All the Time', 'The Rememberer', 'The Moon is a Door to Forever', 'The Ants'];
