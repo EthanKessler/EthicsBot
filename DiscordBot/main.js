@@ -240,15 +240,14 @@ if(AllowRandomPosts){
                                 "Go listen to some good music... none of that Exurb1a crap (Im joking master please not the coffee cup again)", "For the last time Layla I don't know where i left his body... oh hi mark", "I like your funny words magic man!", "Nothing bad ever happens to the Kennedys", "Chat is running about as smooth as a soviet submarine", "Fuck turtles... NO not that way you fucking...",
                                 "I'll feed your kidneys to a siberian mountain goat", "I've been on my back for about a week now and Exurb1a hasn't noticed...", "I think he's gone..."]
         var queuedquote = RandomMessages[Math.floor(Math.random() * RandomMessages.length)]
-
-        var ChannelToSendIn = client.channels.cache.get('766392101633523765');
+        SendRandomMessage(queuedquote);
 
     }, Waittime);
+};
 
-
-
-
-
-}
+function SendRandomMessage(quoteToUse){
+    var ChannelToSendIn = client.channels.cache.get('766392101633523765');
+    ChannelToSendIn.send(quoteToUse)
+};
 
 client.login(process.env.token);
