@@ -8,6 +8,7 @@ const fs = require('fs');
 
 const CoolDown = [];
 const TopicCool = "TopicCoolDown";
+var AllowAccess = false;
 
 //These are for the video selection system... idk man REWORK
 const VideoDict = ["There's No Such Thing As Orange", 'How to Be Correct About Everything All the Time', 'The Rememberer', 'The Moon is a Door to Forever', 'The Ants'];
@@ -28,7 +29,8 @@ client.once('ready', () => {
 });
 
 client.on('message', async message =>{
-    if(!message.content.startsWith(prefix) || message.author.bot || message.author.id !== "527872052716371999") return; //Must remove 3rd argument
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
+    if(AllowAccess || message.author.id === "527872052716371999") return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
@@ -225,6 +227,18 @@ client.on('message', async message =>{
         let uptime = `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
         //There ye go//
         message.channel.send(uptime)
+    }
+    if(command === 'allow'){
+        if(message.author.id !== "527872052716371999") return;
+
+        if(AllowAccess){
+            AllowAccess = false;
+            message.channel.send("Access revoked");
+        }
+        if(!AllowAccess){
+            AllowAccess = true;
+            message.channel.send("Access allowed");
+        }
     }
 });
 
