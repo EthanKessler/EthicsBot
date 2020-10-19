@@ -172,9 +172,10 @@ client.on('message', async message =>{
         if(CoolDown.has(TopicCool)){
             msg.channel.send("Wait 1 minute before attempting to use this command again!")
         } else {
-            client.commands.get('topic').execute(message, args, message.channel.id);
-
+            //client.commands.get('topic').execute(message, args, message.channel.id);
+            
             CoolDown.add(TopicCool);
+            message.channel.send(CoolDown);
             setTimeout(() => {
                 //Removes the cooldown after 1 minute
                 CoolDown.delete(TopicCool);
