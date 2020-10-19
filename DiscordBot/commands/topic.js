@@ -60,7 +60,9 @@ module.exports = {
         }
         
         if(Output){
-            message.channel.send(Output);
+            //message.channel.send(Output);
+            var Output = "Just a test mate";
+            return Output;
         }
     }
 }
