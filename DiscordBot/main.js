@@ -35,7 +35,7 @@ client.on('message', async message =>{
 
 //Reacting to messages
     var SplitMessage = message.toString().toLowerCase().split(" ");
-    if(SplitMessage.includes("fuck you")){
+    if(SplitMessage.includes("fuck") || SplitMessage.includes("fucking") || SplitMessage.includes("shit") || SplitMessage.includes("cunt")){
         message.react("757661899792842902");
     };
 
