@@ -153,7 +153,7 @@ client.on('message', async message =>{
     if(command === 'yt' || command === 'youtube' && message.channel.id === '674356809485516803'){
         client.commands.get('youtube').execute(message, args);
     };
-    if(command === 'help' && message.channel.id === '674356809485516803'){
+    if((command === 'help' || command === 'commands') && message.channel.id === '674356809485516803'){
         let Helpembed = new Discord.MessageEmbed()
         .setTitle('Commands')
         .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
