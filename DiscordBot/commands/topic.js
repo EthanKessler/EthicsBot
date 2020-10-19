@@ -63,9 +63,9 @@ module.exports = {
         if(Output){
             //message.channel.send(Output);
 
-            GetTopicOut: () =>{
+            TopicOut = () =>{
                 return Output;
-            }
+            };
         }
     }
 }
