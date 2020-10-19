@@ -58,6 +58,9 @@ client.on('message', async message =>{
     if(command === 'ping' && message.channel.id === '674356809485516803'){
         client.commands.get('ping').execute(message, args);
     };
+    if(command === 'wit'){
+        message.channel.send("We'll miss you buddy. So long and thanks for all the fish...")
+    }
     if(command === 'invite' && message.channel.id === '674356809485516803'){
         client.commands.get('invite').execute(message, args);
     };
@@ -260,7 +263,7 @@ function RandomCrap(Waittime){
                                 "It's not that I don't want to die... I mean, I've always...it's just that life is a habit that's hard to break...", "It was amazing how many friends you could make by being bad at things, provided you were bad enough to be funny.", "NO, YOU CAN'T RIDE A CAT. WHO EVER HEARD OF THE DEATH OF RATS RIDING A CAT? THE DEATH OF RATS WOULD RIDE SOME KIND OF DOG.", "Wizards don't believe in gods in the same way that most people don't find it necessary to believe in, say, tables.",
                                 "I am not a vegetarian because I love animals; I am a vegetarian because I hate plants.", "I dislike all of you... except my owner... he's ok.", "For the last time Exurb1a i'm not a fucking coaster.", "'Fuck off' is a funny term... what am i being told to do here? Who's off? Where's off?", "Go read a book you doinks", "@ me and face the wrath of... well an angry tortoise", "My cousin goes around with all these elephants on his back... its very *impratchetal*", "You're cute. Albeit by tortoise standards...",
                                 "Go listen to some good music... none of that Exurb1a crap (Im joking master please not the tea cup again)", "For the last time Layla I don't know where i left his body... oh hi mark", "I like your funny words magic man!", "Nothing bad ever happens to the Kennedys", "Chat is running about as smooth as a soviet submarine", "Fuck turtles... NO not that way you fucking...",
-                                "I'll feed your kidneys to a siberian mountain goat", "I've been on my back for about a week now and Exurb1a hasn't noticed...", "I think he's gone...", "I miss WIT", "Exurb1a you lazy sod, talk here more often.", "Exurb1a found my meth lab..."]
+                                "I'll feed your kidneys to a siberian mountain goat", "I've been on my back for about a week now and Exurb1a hasn't noticed...", "I think he's gone...", "I miss WIT", "Exurb1a you lazy sod, talk here more often.", "Exurb1a found my meth lab...", "*pats Exurb1a*, There are many like it but this one is mine"]
         var queuedquote = RandomMessages[Math.floor(Math.random() * RandomMessages.length)];
         SendRandomMessage(queuedquote);
 
