@@ -158,17 +158,17 @@ client.on('message', async message =>{
         .setTitle('Commands')
         .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
         .addFields(
-            { name: '.help', value: 'Displays a list of possible commands'},
-            { name: '.invite', value: 'Sends an invite link for the server'},
-            { name: '.mystery', value: 'Sends a mystery link'},
-            { name: '.define (+ Search term)', value: 'Defines the word provided. (For example: .define Charles_Darwin)'},
-            { name: '.ping', value: 'pong'},
-            { name: '.video', value: 'Displays a list of the 5 most recent videos'},
-            { name: '.donate', value: 'Sends a link to the Exurb1a patreon'},
-            { name: '.yt', value: 'Sends a link to the Exurb1a channel'},
-            { name: '.find (+ Search term)', value: 'Searches Exurb1a videos for the search term. Ever wondered where that quote is from?'},
-            { name: '.quote', value: 'Sends a link to a library of quotes'},
-            { name: '.topic', value: 'Sends a channel specific discussion topic'}
+            { name: '+help', value: 'Displays a list of possible commands'},
+            { name: '+invite', value: 'Sends an invite link for the server'},
+            { name: '+mystery', value: 'Sends a mystery link'},
+            { name: '+define (+ Search term)', value: 'Defines the word provided. (For example: .define Charles_Darwin)'},
+            { name: '+ping', value: 'pong'},
+            { name: '+video', value: 'Displays a list of the 5 most recent videos'},
+            { name: '+donate', value: 'Sends a link to the Exurb1a patreon'},
+            { name: '+yt', value: 'Sends a link to the Exurb1a channel'},
+            { name: '+find (+ Search term)', value: 'Searches Exurb1a videos for the search term. Ever wondered where that quote is from?'},
+            { name: '+quote', value: 'Sends a link to a library of quotes'},
+            { name: '+topic', value: 'Sends a channel specific discussion topic'}
         )
         .setColor('GREEN')
         //.setImage(['./Assets/exurb1a.jpg'])
