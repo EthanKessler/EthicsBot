@@ -6,6 +6,9 @@ const prefix = '+';
 
 const fs = require('fs');
 
+const BotLogs = client.channels.cache.get('767752850561302578');
+var CommandsAnswered = 0;
+
 const CoolDown = [];
 var AllowAccess = false;
 const Whitelist = ['527872052716371999', '656960915853279247'];
@@ -38,11 +41,16 @@ client.on('message', async message =>{
     //     message.react("757969401856262287")
     // };
 
+    //More random shit
+
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     if(!(AllowAccess || Whitelist.includes(message.author.id))) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
+
+    CommandsAnswered += 1;
+    BotLogs.send(`Command answered, current total: ${CommandsAnswered}`);
 
 
 //Adding all the commands
@@ -168,6 +176,11 @@ client.on('message', async message =>{
             process.exit(1);
         })
     };
+    if(command === 'CommandsAnswered' && message.author.id === '527872052716371999'){
+        var NewAnsweredValue = parseInt(args[0]);
+        CommandsAnswered = NewAnsweredValue;
+        message.channel.send("Values updated sir!");
+    }
 //set bot status
     if(command === 'status'){
         if(!Whitelist.includes(message.author.id)) return;
@@ -192,6 +205,7 @@ client.on('message', async message =>{
         //There ye go//
         message.channel.send(uptime)
     }
+    ////THE MOST IMPORTANT COMMAND////
     if(command === 'allow' || command === 'access'){
         if(!Whitelist.includes(message.author.id)) return;
 
