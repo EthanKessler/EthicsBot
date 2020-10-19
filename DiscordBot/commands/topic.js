@@ -61,11 +61,7 @@ module.exports = {
         var Output = "Just a test mate";
         
         if(Output){
-            //message.channel.send(Output);
-
-            TopicOut = () =>{
-                return Output;
-            };
+            message.channel.send(Output);
         }
     }
 }
