@@ -6,6 +6,8 @@ const prefix = '+';
 
 const fs = require('fs');
 
+const CoolDown = new Set();
+
 //These are for the video selection system... idk man REWORK
 const VideoDict = ["There's No Such Thing As Orange", 'How to Be Correct About Everything All the Time', 'The Rememberer', 'The Moon is a Door to Forever', 'The Ants'];
 const VideoDef = ['https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s', 'https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s', 'https://www.youtube.com/watch?v=hS_AXRRnIzM', 'https://www.youtube.com/watch?v=K3X2Fv-c3Fc', 'https://www.youtube.com/watch?v=Et6itTuJSYY'];
@@ -165,7 +167,20 @@ client.on('message', async message =>{
         HelpmsgEmbed.delete({ timeout: 60000});
     }
     if(command === 'topic'){
-        client.commands.get('topic').execute(message, args, message.channel.id);
+
+        if(CoolDown.has("topicCooldown")){
+            msg.channel.send("Wait 1 minute before attempting to use this command again!")
+        } else{
+            client.commands.get('topic').execute(message, args, message.channel.id);
+
+            CoolDown.add("topicCooldown");
+            setTimeout(() => {
+                //Removes the cooldown after 1 minute
+                CoolDown.delete("topicCooldown");
+            }, 60000);
+        }
+
+
     }
 
 ////ADMIN ONLY////
