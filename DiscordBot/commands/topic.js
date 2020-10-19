@@ -58,7 +58,6 @@ module.exports = {
         if(channelID === "674332038182207578"){
             var Output = `Discuss: ${GeneralTopics[Math.floor(Math.random() * GeneralTopics.length)]}`;
         }
-        var Output = "Just a test mate";
         
         if(Output){
             message.channel.send(Output);

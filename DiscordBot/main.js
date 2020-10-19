@@ -109,7 +109,7 @@ client.on('message', async message =>{
             //message.channel.send(`loop is working: ${subfile}`);
             var filetext = fs.readFileSync(`./subs/${subfile}`, 'utf8');
             Finaltext = filetext.toLowerCase();
-            var Keyword = args[0].toLowerCase();
+            var Keyword = args.join(" ").toLowerCase();
             var LinkHead = "https://www.youtube.com/watch?v="
             
             //message.channel.send(`${subs.indexOf(subfile)} out of ${subs.length}`);
@@ -171,17 +171,17 @@ client.on('message', async message =>{
     if(command === 'topic'){
 
         if(CoolDown.includes(TopicCool)){
-            message.channel.send("Wait 1 minute before attempting to use this command again!");
+            message.channel.send("Wait 5 minutes before attempting to use this command again!");
         } else {
             client.commands.get('topic').execute(message, args, message.channel.id);
             
             CoolDown.push(TopicCool);
             //message.channel.send("Command Executed");
             setTimeout(() => {
-                //Removes the cooldown after 1 minute
+                //Removes the cooldown after 5 minutes
                 var CoolIndex = CoolDown.indexOf(TopicCool)
                 CoolDown.splice(CoolIndex, 1);
-            }, 60000);
+            }, 300000);
         }
 
 
