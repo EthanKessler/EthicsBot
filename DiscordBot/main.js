@@ -39,7 +39,7 @@ client.on('message', async message =>{
     // };
 
     if(!message.content.startsWith(prefix) || message.author.bot) return;
-    if(!(AllowAccess || message.author.id === "527872052716371999")) return;
+    if(!(AllowAccess || !Whitelist.includes(message.author.id))) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
