@@ -6,7 +6,7 @@ const prefix = '+';
 
 const fs = require('fs');
 
-const CoolDown = new Set();
+const CoolDown = [];
 const TopicCool = "TopicCoolDown";
 
 //These are for the video selection system... idk man REWORK
@@ -169,16 +169,17 @@ client.on('message', async message =>{
     }
     if(command === 'topic'){
 
-        if(CoolDown.has(TopicCool)){
+        if(CoolDown.includes(TopicCool)){
             msg.channel.send("Wait 1 minute before attempting to use this command again!")
         } else {
             //client.commands.get('topic').execute(message, args, message.channel.id);
             
-            CoolDown.add(TopicCool);
-            message.channel.send(CoolDown);
+            CoolDown.push(TopicCool);
+            message.channel.send("Command Executed");
             setTimeout(() => {
                 //Removes the cooldown after 1 minute
-                CoolDown.delete(TopicCool);
+                var CoolIndex = CoolDown.indexOf(TopicCool)
+                CoolDown.splice(CoolIndex, 1);
             }, 60000);
         }
 
