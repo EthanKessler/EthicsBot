@@ -7,7 +7,6 @@ const prefix = '+';
 const fs = require('fs');
 
 const CoolDown = [];
-const TopicCool = "TopicCoolDown";
 var AllowAccess = false;
 
 //These are for the video selection system... idk man REWORK
@@ -30,10 +29,13 @@ client.once('ready', () => {
 
 client.on('message', async message =>{
     //Reacting to messages
-    var SplitMessage = message.toString().toLowerCase().split(" ");
-    if(SplitMessage.includes("fuck") || SplitMessage.includes("fucking") || SplitMessage.includes("shit") || SplitMessage.includes("cunt")){
-        message.react("757661899792842902");
-    };
+    // var SplitMessage = message.toString().toLowerCase().split(" ");
+    // if(SplitMessage.includes("fuck") || SplitMessage.includes("fucking") || SplitMessage.includes("shit") || SplitMessage.includes("cunt")){
+    //     message.react("757661899792842902");
+    // };
+    // if(SplitMessage.includes("@staff")){
+    //     message.react("757969401856262287")
+    // };
 
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     if(!(AllowAccess || message.author.id === "527872052716371999")) return;
@@ -48,45 +50,6 @@ client.on('message', async message =>{
     };
     if(command === 'invite' && message.channel.id === '674356809485516803'){
         client.commands.get('invite').execute(message, args);
-    };
-    if(command === 'video' && message.channel.id === '674356809485516803'){
-        // if(!args.length){
-        //     return message.channel.send(`Err: This command requires an argument!`)
-        // }
-
-        // message.channel.send(`Arguments: ${args[0]}`);
-
-        //Set description
-        const VideoSelect = `1️⃣ ${VideoDict[0]} \n`
-                            + `2️⃣ ${VideoDict[1]} \n`
-                            + `3️⃣ ${VideoDict[2]} \n`
-                            + `4️⃣ ${VideoDict[3]} \n`
-                            + `5️⃣ ${VideoDict[4]} \n`;
-
-        let embed = new Discord.MessageEmbed()
-        .setTitle('Videos')
-        .setDescription(VideoSelect)
-        .setColor('GREEN')
-        let msgEmbed = await message.channel.send(embed)
-        msgEmbed.react('1️⃣')
-        msgEmbed.react('2️⃣')
-        msgEmbed.react('3️⃣')
-        msgEmbed.react('4️⃣')
-        msgEmbed.react('5️⃣')
-
-
-        //From here on should be in the isolated file
-        // const VideoDict = ['orange', 'correct', 'rememberer', 'moon', 'ants'];
-        // const VideoDef = ['https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s', 'https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s', 'https://www.youtube.com/watch?v=hS_AXRRnIzM', 'https://www.youtube.com/watch?v=K3X2Fv-c3Fc', 'https://www.youtube.com/watch?v=Et6itTuJSYY'];
-
-        // if(!VideoDict.includes(args[0])){
-        //     return message.author.send(`Woah there! that video isn't in my collection right now. Try: ${Arrays.toString(VideoDict)}`)
-        // }
-        // var Index = VideoDict.indexOf(args[0]);
-        // var Output = VideoDef[Index];
-
-        // message.author.send(`Video: ${Output}`); //Cant get it to work in the fucking file
-        //client.commands.get('videos').execute(message, args, VideoDict, VideoDef);
     };
     if(command === 'donate' && message.channel.id === '674356809485516803'){
         client.commands.get('donate').execute(message, args);
@@ -163,7 +126,6 @@ client.on('message', async message =>{
             { name: '+mystery', value: 'Sends a mystery link'},
             { name: '+define (+ Search term)', value: 'Defines the word provided. (For example: .define Charles_Darwin)'},
             { name: '+ping', value: 'pong'},
-            { name: '+video', value: 'Displays a list of the 5 most recent videos'},
             { name: '+donate', value: 'Sends a link to the Exurb1a patreon'},
             { name: '+yt', value: 'Sends a link to the Exurb1a channel'},
             { name: '+find (+ Search term)', value: 'Searches Exurb1a videos for the search term. Ever wondered where that quote is from?'},
@@ -178,7 +140,7 @@ client.on('message', async message =>{
         HelpmsgEmbed.delete({ timeout: 60000});
     }
     if(command === 'topic'){
-
+        var TopicCool = message.channel.id;
         if(CoolDown.includes(TopicCool)){
             message.channel.send("Wait 5 minutes before attempting to use this command again!");
         } else {
@@ -228,7 +190,7 @@ client.on('message', async message =>{
         //There ye go//
         message.channel.send(uptime)
     }
-    if(command === 'allow'){
+    if(command === 'allow' || command === 'access'){
         if(message.author.id !== "527872052716371999") return;
 
         if(AllowAccess){
@@ -241,35 +203,5 @@ client.on('message', async message =>{
         }
     }
 });
-
-client.on("messageReactionAdd", async (reaction, user) =>{
-    if (reaction.message.partial) await reaction.message.fetch();
-
-    if (user.bot) return;
-    if (!reaction.message.guild) return;
-
-    if (reaction.message.channel.id === "766392101633523765"){
-        if (reaction.emoji.name === '1️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[0]}`) 
-            reaction.message.delete();
-        }
-        if (reaction.emoji.name === '2️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[1]}`)
-            reaction.message.delete(); 
-        }
-        if (reaction.emoji.name === '3️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[2]}`)
-            reaction.message.delete();
-        }
-        if (reaction.emoji.name === '4️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[3]}`) 
-            reaction.message.delete();
-        }
-        if (reaction.emoji.name === '5️⃣') {
-            await reaction.message.guild.members.cache.get(user.id).send(`Video: ${VideoDef[4]}`) 
-            reaction.message.delete();
-        }
-    }
-})
 
 client.login(process.env.token);
