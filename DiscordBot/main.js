@@ -29,17 +29,17 @@ client.once('ready', () => {
 });
 
 client.on('message', async message =>{
+    //Reacting to messages
+    var SplitMessage = message.toString().toLowerCase().split(" ");
+    if(SplitMessage.includes("fuck") || SplitMessage.includes("fucking") || SplitMessage.includes("shit") || SplitMessage.includes("cunt")){
+        message.react("757661899792842902");
+    };
+
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     if(!(AllowAccess || message.author.id === "527872052716371999")) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
-
-//Reacting to messages
-    var SplitMessage = message.toString().toLowerCase().split(" ");
-    if(SplitMessage.includes("fuck") || SplitMessage.includes("fucking") || SplitMessage.includes("shit") || SplitMessage.includes("cunt")){
-        message.react("757661899792842902");
-    };
 
 
 //Adding all the commands
