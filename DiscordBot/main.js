@@ -33,14 +33,21 @@ client.on('message', async message =>{
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
+//Reacting to messages
+    var SplitMessage = message.toString().toLowerCase().split(" ");
+    if(SplitMessage.includes("fuck you")){
+        message.react("757661899792842902");
+    }
+
+
 //Adding all the commands
-    if(command === 'ping' && message.channel.id === '766392101633523765'){
+    if(command === 'ping' && message.channel.id === '674356809485516803'){
         client.commands.get('ping').execute(message, args);
     };
-    if(command === 'invite' && message.channel.id === '766392101633523765'){
+    if(command === 'invite' && message.channel.id === '674356809485516803'){
         client.commands.get('invite').execute(message, args);
     };
-    if(command === 'video' && message.channel.id === '766392101633523765'){
+    if(command === 'video' && message.channel.id === '674356809485516803'){
         // if(!args.length){
         //     return message.channel.send(`Err: This command requires an argument!`)
         // }
@@ -79,10 +86,10 @@ client.on('message', async message =>{
         // message.author.send(`Video: ${Output}`); //Cant get it to work in the fucking file
         //client.commands.get('videos').execute(message, args, VideoDict, VideoDef);
     };
-    if(command === 'donate' && message.channel.id === '766392101633523765'){
+    if(command === 'donate' && message.channel.id === '674356809485516803'){
         client.commands.get('donate').execute(message, args);
     };
-    if(command === 'mystery' && message.channel.id === '766392101633523765'){
+    if(command === 'mystery' && message.channel.id === '674356809485516803'){
         client.commands.get('mystery').execute(message, args);
     };
     if(command === 'define'){
@@ -97,10 +104,10 @@ client.on('message', async message =>{
 
         //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
     };
-    if(command === 'quote' || command === 'quotes' && message.channel.id === '766392101633523765'){
+    if(command === 'quote' || command === 'quotes' && message.channel.id === '674356809485516803'){
         client.commands.get('quote').execute(message, args);
     };
-    if(command === 'find' && message.channel.id === '766392101633523765'){
+    if(command === 'find' && message.channel.id === '674356809485516803'){
         //client.commands.get('find').execute(message, args);
         const FoundFields = [];
         message.channel.send("[BETA] Your request is being processed. Due to the plethora of high calibre content produced over the past few years, the request may take up to 5 minutes to complete. Maybe enjoy a cup of coffee.");
@@ -130,21 +137,21 @@ client.on('message', async message =>{
         };
 
         //var RelevantOutput = FoundVideos.toString();
-        message.author.send(`Now to make the embed with: ${FoundFields}`);
+        //message.author.send(`Now to make the embed with: ${FoundFields}`);
 
         //Lets make it an embed
         let FoundEmbed = new Discord.MessageEmbed()
         .setTitle('I found videos!')
         .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
-        .setDescription(`Relevant videos to keyword (${args[0]})`)
+        .setDescription(`Relevant videos to keyword(s) (${Keyword})`)
         .addFields(FoundFields)
         .setColor('GREEN');
         let FoundmsgEmbed = await message.author.send(FoundEmbed);
     };
-    if(command === 'yt' || command === 'youtube' && message.channel.id === '766392101633523765'){
+    if(command === 'yt' || command === 'youtube' && message.channel.id === '674356809485516803'){
         client.commands.get('youtube').execute(message, args);
     };
-    if(command === 'help' && message.channel.id === '766392101633523765'){
+    if(command === 'help' && message.channel.id === '674356809485516803'){
         let Helpembed = new Discord.MessageEmbed()
         .setTitle('Commands')
         .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
