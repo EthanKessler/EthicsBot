@@ -34,13 +34,13 @@ client.on('message', async message =>{
     const command = args.shift().toLowerCase();
 
 //Adding all the commands
-    if(command === 'ping'){
+    if(command === 'ping' && message.channel.id === '766392101633523765'){
         client.commands.get('ping').execute(message, args);
     };
-    if(command === 'invite'){
+    if(command === 'invite' && message.channel.id === '766392101633523765'){
         client.commands.get('invite').execute(message, args);
     };
-    if(command === 'video'){
+    if(command === 'video' && message.channel.id === '766392101633523765'){
         // if(!args.length){
         //     return message.channel.send(`Err: This command requires an argument!`)
         // }
@@ -79,10 +79,10 @@ client.on('message', async message =>{
         // message.author.send(`Video: ${Output}`); //Cant get it to work in the fucking file
         //client.commands.get('videos').execute(message, args, VideoDict, VideoDef);
     };
-    if(command === 'donate'){
+    if(command === 'donate' && message.channel.id === '766392101633523765'){
         client.commands.get('donate').execute(message, args);
     };
-    if(command === 'mystery'){
+    if(command === 'mystery' && message.channel.id === '766392101633523765'){
         client.commands.get('mystery').execute(message, args);
     };
     if(command === 'define'){
@@ -97,10 +97,10 @@ client.on('message', async message =>{
 
         //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
     };
-    if(command === 'quote' || command === 'quotes'){
+    if(command === 'quote' || command === 'quotes' && message.channel.id === '766392101633523765'){
         client.commands.get('quote').execute(message, args);
     };
-    if(command === 'find'){
+    if(command === 'find' && message.channel.id === '766392101633523765'){
         //client.commands.get('find').execute(message, args);
         const FoundFields = [];
         message.channel.send("[BETA] Your request is being processed. Due to the plethora of high calibre content produced over the past few years, the request may take up to 5 minutes to complete. Maybe enjoy a cup of coffee.");
@@ -141,7 +141,7 @@ client.on('message', async message =>{
         .setColor('GREEN');
         let FoundmsgEmbed = await message.author.send(FoundEmbed);
     };
-    if(command === 'yt' || command === 'youtube'){
+    if(command === 'yt' || command === 'youtube' && message.channel.id === '766392101633523765'){
         client.commands.get('youtube').execute(message, args);
     };
     if(command === 'help' && message.channel.id === '766392101633523765'){
@@ -158,13 +158,14 @@ client.on('message', async message =>{
             { name: '.donate', value: 'Sends a link to the Exurb1a patreon'},
             { name: '.yt', value: 'Sends a link to the Exurb1a channel'},
             { name: '.find (+ Search term)', value: 'Searches Exurb1a videos for the search term. Ever wondered where that quote is from?'},
-            { name: '.quote', value: 'Sends a link to a library of quotes'}
+            { name: '.quote', value: 'Sends a link to a library of quotes'},
+            { name: '.topic', value: 'Sends a channel specific discussion topic'}
         )
         .setColor('GREEN')
         //.setImage(['./Assets/exurb1a.jpg'])
         .setTimestamp()
         .setAuthor('EthanKessler', null, 'https://ethankessler.itch.io/')
-        let HelpmsgEmbed = await message.channel.send(Helpembed)
+        let HelpmsgEmbed = await message.author.send(Helpembed)
         HelpmsgEmbed.delete({ timeout: 60000});
     }
     if(command === 'topic'){
@@ -172,10 +173,10 @@ client.on('message', async message =>{
         if(CoolDown.includes(TopicCool)){
             message.channel.send("Wait 1 minute before attempting to use this command again!");
         } else {
-            //client.commands.get('topic').execute(message, args, message.channel.id);
+            client.commands.get('topic').execute(message, args, message.channel.id);
             
             CoolDown.push(TopicCool);
-            message.channel.send("Command Executed");
+            //message.channel.send("Command Executed");
             setTimeout(() => {
                 //Removes the cooldown after 1 minute
                 var CoolIndex = CoolDown.indexOf(TopicCool)
