@@ -42,6 +42,10 @@ client.on('message', async message =>{
     // if(SplitMessage.includes("@staff")){
     //     message.react("757969401856262287")
     // };
+    if(AllowRandomPosts){
+        var Waittime = (Math.random() * (10000 - 1000));
+        RandomCrap(Waittime);
+    }
 
     //More random shit
     if(!message.content.startsWith(prefix) || message.author.bot) return;
@@ -235,16 +239,6 @@ client.on('message', async message =>{
         }
     }
 });
-
-if(AllowRandomPosts){
-    // var test = client.channels.cache.get('766392101633523765');
-    // ChannelToSendIn.send(test)
-
-
-    //var Waittime = (Math.random() * (28800000 - 14400000));
-    var Waittime = (Math.random() * (10000 - 1000));
-    RandomCrap(Waittime);
-};
 
 function RandomCrap(Waittime){
     setTimeout(function(){
