@@ -235,7 +235,7 @@ client.on('message', async message =>{
             AllowAccess = false;
             message.channel.send("Access revoked");
         }
-        if(!AllowAccess){
+        else if(!AllowAccess){
             AllowAccess = true;
             message.channel.send("Access allowed");
         }
