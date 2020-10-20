@@ -172,7 +172,13 @@ client.on('message', async message =>{
         //.setImage(['./Assets/exurb1a.jpg'])
         .setTimestamp()
         .setAuthor('EthanKessler', null, 'https://ethankessler.itch.io/')
-        let HelpmsgEmbed = await message.author.send(Helpembed)
+        try {
+            let HelpmsgEmbed = await message.author.send(Helpembed)
+        } catch (error) {
+            message.channel.send("Uh oh, something went wrong.");
+            return;
+        }
+        // let HelpmsgEmbed = await message.author.send(Helpembed)
         //HelpmsgEmbed.delete({ timeout: 60000});
         UpdateCommandsAnswered();
     }
