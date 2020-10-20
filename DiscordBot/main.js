@@ -33,13 +33,17 @@ client.once('ready', () => {
 
 client.on('message', async message =>{
     //Reacting to messages
-    // var SplitMessage = message.toString().toLowerCase().split(" ");
-    // if(SplitMessage.includes("fuck") || SplitMessage.includes("fucking") || SplitMessage.includes("shit") || SplitMessage.includes("cunt")){
-    //     message.react("757661899792842902");
-    // };
-    // if(SplitMessage.includes("@staff")){
-    //     message.react("757969401856262287")
-    // };
+    var SplitMessage = message.toString().toLowerCase().split(" ");
+    if(message.channel.id === '674332038182207578'){
+        if(SplitMessage.includes("fuck") || SplitMessage.includes("fucking") || SplitMessage.includes("shit")){
+            message.react("757661899792842902");
+        if(SplitMessage.includes("fuck") && SplitMessage.includes("you") && SplitMessage.includes("dyno")){
+            message.react("757661899792842902");
+        }
+        if(SplitMessage.includes("exurb1a")){
+            message.react("767223850907336704");
+        }
+    }
     if(AllowRandomPosts){
         setTimeout(() => {
             SendRandomMessage();
@@ -256,7 +260,15 @@ client.on('message', async message =>{
         UpdateCommandsAnswered();
     }
     if(command === "send" && message.author.id === '527872052716371999'){
-        client.commands.get('send').execute(message, args, client);
+        //client.commands.get('send').execute(message, args, client);
+        var argsCopy = args;
+
+        var channelToSendIn = argsCopy.splice(0, 1)
+        var MessageToSend = argsCopy.join(" ");
+
+        
+        var TheChannel = client.channels.cache.get(channelToSendIn[0]);
+        TheChannel.send(MessageToSend);
     }
 });
 
