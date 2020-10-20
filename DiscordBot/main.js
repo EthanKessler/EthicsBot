@@ -167,17 +167,17 @@ client.on('message', async message =>{
         .setTimestamp()
         .setAuthor('EthanKessler', null, 'https://ethankessler.itch.io/')
         let HelpmsgEmbed = await message.author.send(Helpembed)
-        HelpmsgEmbed.delete({ timeout: 60000});
+        //HelpmsgEmbed.delete({ timeout: 60000});
         UpdateCommandsAnswered();
     }
     if(command === 'topic'){
         var TopicCool = message.channel.id;
         if(CoolDown.includes(TopicCool)){
             var PleaseWait = message.channel.send("Wait 5 minutes before attempting to use this command again!");
-            (await PleaseWait).delete({ timeout: 10000 });
+            //(await PleaseWait).delete({ timeout: 10000 });
         } else {
             client.commands.get('topic').execute(message, args, message.channel.id);
-            message.delete({ timeout: 10000});
+            //message.delete({ timeout: 10000 });
 
             CoolDown.push(TopicCool);
             //message.channel.send("Command Executed");
@@ -229,6 +229,7 @@ client.on('message', async message =>{
         let uptime = `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
         //There ye go//
         message.channel.send(uptime)
+        //message.delete({ timeout: 10000 });
         UpdateCommandsAnswered();
     }
     ////THE MOST IMPORTANT COMMAND////
