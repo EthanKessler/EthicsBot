@@ -28,7 +28,7 @@ var UsedTheology = [];
 const PoliticalTopics = ["Gun control", "Abortion", "Religios freedom", "Freedom of speech", "Animal rights", "Suspension of human rights in the interest of public order",
                         "Vaccines", "Rights to privacy", "Global Climate Change", "Capital punishment", "Immigration reform", "The trump presidency", "Discrimination in politics", "Positive discrimination (Does it work?)",
                         "Cancel culture", "The Israeli-Palestinian Conflict", "Universal Healthcare", "Political Censorship", "Redaction of government documents and witholding of information from general public",
-                        "Social influencers using charity for leverage", "Universal ban on smoking", "Drug laws", "What steps should governments take to improve mental health?", ""];
+                        "Social influencers using charity for leverage", "Universal ban on smoking", "Drug laws", "What steps should governments take to improve mental health?"];
 var UsedPolitics = [];
 
 const HistoricalTopics = ["In your opinion, what was the most significant event in history?", "To what extent was the second world war caused by the punishments enforced after WWI.", "The scramble for africa and its effects on WW1", "Who started the scramble for Africa and why?",
