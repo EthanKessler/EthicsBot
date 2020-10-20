@@ -41,7 +41,7 @@ client.on('message', async message =>{
     };
 
     if(message.channel.id === "674332038182207578"){
-        if(message.content.split(" ").includes("fuck") || message.content.split(" ").includes("fucking")){
+        if(message.content.toLowerCase().split(" ").includes("fuck") || message.content.split(" ").includes("fucking")){
             var WhichEmoji = Math.floor(Math.random() * 10)
             if(WhichEmoji >= 5){
                 message.react("757661899792842902")
@@ -273,13 +273,16 @@ client.on('message', async message =>{
         var TheChannel = client.channels.cache.get(channelToSendIn[0]);
         TheChannel.send(MessageToSend);
     }
+    if(command === "stats" && message.author.id === '527872052716371999'){
+        message.channel.send(`Commands replied to: ${CommandsAnswered}`);
+    }
 });
 
 function UpdateCommandsAnswered(){
     CommandsAnswered += 1;
 
     // const BotLogs = client.channels.cache.get('767752850561302578');
-    BotLogs.send(`Command answered, current total: ${CommandsAnswered}`);
+    //BotLogs.send(`Command answered, current total: ${CommandsAnswered}`);
 };
 
 function SendRandomMessage(){
