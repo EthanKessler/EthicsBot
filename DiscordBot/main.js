@@ -268,10 +268,10 @@ function RandomCrap(Waittime){
     },Waittime);
 }
 
-void function UpdateCommandsAnswered(){
+function UpdateCommandsAnswered(){
     CommandsAnswered += 1;
     BotLogs.send(`Command answered, current total: ${CommandsAnswered}`);
-}
+};
 
 function SendRandomMessage(){
     var ChannelToSendIn = client.channels.cache.get('767108832722813020');
