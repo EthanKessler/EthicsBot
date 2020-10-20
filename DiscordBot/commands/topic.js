@@ -51,18 +51,43 @@ module.exports = {
 
         if(channelID === "674332146940379141"){
             var Output = `Discuss: ${ScienceTopics[Math.floor(Math.random() * ScienceTopics.length)]}`;
+            if(UsedScience.includes(Output)){
+                Output = `Discuss: ${ScienceTopics[Math.floor(Math.random() * ScienceTopics.length)]}`;
+                UsedScience = [];
+            };
+            UsedScience.push(Output)
         }
         if(channelID === "674332165227675668"){
             var Output = `Discuss: ${PhilosophyTopics[Math.floor(Math.random() * PhilosophyTopics.length)]}`;
+            if(UsedPhilosophy.includes(Output)){
+                Output = `Discuss: ${PhilosophyTopics[Math.floor(Math.random() * PhilosophyTopics.length)]}`;
+                UsedPhilosophy = [];
+            };
+            UsedPhilosophy.push(Output)
         }
         if(channelID === "740951767399006329"){
             var Output = `Discuss: ${TheologyTopics[Math.floor(Math.random() * TheologyTopics.length)]}`;
+            if(UsedTheology.includes(Output)){
+                Output = `Discuss: ${TheologyTopics[Math.floor(Math.random() * TheologyTopics.length)]}`;
+                UsedTheology = [];
+            };
+            UsedTheology.push(Output)
         }
         if(channelID === "728655406758625282"){
             var Output = `Discuss: ${PoliticalTopics[Math.floor(Math.random() * PoliticalTopics.length)]}`;
+            if(UsedPolitics.includes(Output)){
+                Output = `Discuss: ${PoliticalTopics[Math.floor(Math.random() * PoliticalTopics.length)]}`;
+                UsedPolitics = [];
+            };
+            UsedPolitics.push(Output)
         }
         if(channelID === "726072510218633237"){
             var Output = `Discuss: ${HistoricalTopics[Math.floor(Math.random() * HistoricalTopics.length)]}`;
+            if(UsedHistory.includes(Output)){
+                Output = `Discuss: ${HistoricalTopics[Math.floor(Math.random() * HistoricalTopics.length)]}`;
+                UsedHistory = [];
+            };
+            UsedHistory.push(Output)
         }
         if(channelID === "674332038182207578"){
             var Output = `Discuss: ${GeneralTopics[Math.floor(Math.random() * GeneralTopics.length)]}`;

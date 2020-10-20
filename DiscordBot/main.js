@@ -7,6 +7,8 @@ const prefix = '+';
 
 const fs = require('fs');
 
+const BotLogs = client.channels.cache.get('767752850561302578');
+
 //const BotLogs = client.channels.cache.get('767752850561302578');
 
 const CoolDown = [];
@@ -15,11 +17,6 @@ var AllowRandomPosts = false;
 const Whitelist = ['527872052716371999', '208428556106072064', '256131859950338054'];
 var CommandsAnswered = 0;
 var Waittime = (Math.random() * (14400000 - 3600000));
-
-//These are for the video selection system... idk man REWORK
-const VideoDict = ["There's No Such Thing As Orange", 'How to Be Correct About Everything All the Time', 'The Rememberer', 'The Moon is a Door to Forever', 'The Ants'];
-const VideoDef = ['https://www.youtube.com/watch?v=WX0xWJpr0FY&t=1s', 'https://www.youtube.com/watch?v=DJiGuFCzaFo&t=280s', 'https://www.youtube.com/watch?v=hS_AXRRnIzM', 'https://www.youtube.com/watch?v=K3X2Fv-c3Fc', 'https://www.youtube.com/watch?v=Et6itTuJSYY'];
-//End of random shit
 
 client.commands = new Discord.Collection();
 
@@ -263,7 +260,7 @@ client.on('message', async message =>{
 function UpdateCommandsAnswered(){
     CommandsAnswered += 1;
 
-    const BotLogs = client.channels.cache.get('767752850561302578');
+    // const BotLogs = client.channels.cache.get('767752850561302578');
     BotLogs.send(`Command answered, current total: ${CommandsAnswered}`);
 };
 
