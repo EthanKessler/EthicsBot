@@ -276,7 +276,7 @@ function UpdateCommandsAnswered(){
 };
 
 function SendRandomMessage(){
-    var ChannelToSendIn = client.channels.cache.get('767108832722813020');
+    var ChannelToSendIn = client.channels.cache.get('674332038182207578');
     const RandomMessages = ["Where did I leave my knife?", "I hope no one saw that...", "Why?", "Who am I?", "Where's all the milk?", "Fuck you Dyno...",
                                 "This universe is as mad as a bucket of coked up ferrets...", "The suspect has his head placed upon a block, and an axe aimed at his neck. If the man is guilty, the axe will bounce off his neck — so we burn him. If the man is not guilty, the axe will simply slice his head off.",
                                 "Field Marshal Haig is about to make yet another gargantuan effort to move his drinks cabinet six inches closer to Berlin.", "What's the story morning glory?", "There hasn’t been a war run this badly since Olaf the hairy, King of all the Vikings, ordered 80,000 battle helmets with the horns on the inside.",
