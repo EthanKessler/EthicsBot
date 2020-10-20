@@ -27,7 +27,10 @@ const PoliticalTopics = ["Gun control", "Abortion", "Religios freedom", "Freedom
                         "Cancel culture", "The Israeli-Palestinian Conflict", "Universal Healthcare", "Political Censorship", "Redaction of government documents and witholding of information from general public",
                         "Social influencers using charity for leverage", "Universal ban on smoking", "Drug laws", "What steps should governments take to improve mental health?", ""];
 
-const HistoricalTopics = ["In your opinion, what was the most significant event in history?", "To what extent was the second world war caused by the punishments enforced after WWI."];
+const HistoricalTopics = ["In your opinion, what was the most significant event in history?", "To what extent was the second world war caused by the punishments enforced after WWI.", "The scramble for africa and its effects on WW1", "Who started the scramble for Africa and why?",
+                        "What was the most important event of WW1 and WW2? Why?", "What would have happened had the USA elected not to use the Nuclear bomb", "To what extent did the cracking of the enigma code aid the Allies in WWII?", "Was the Roman empire always destined to fall? Why?",
+                        "How did the small focus on cavalry in the ranks of the army affect the late roman Empire?", "Did the Roman's treat its occupied citizens fairly?", "Would China be better under nationalist rule?", "The significance of the 'People's volunteer army' in the Korea Crisis",
+                        "In the modern day, do we have as much to learn from history as we once did?", "Does history truly repeat itself?"];
 
 const GeneralTopics = ["How's your day going?", "What was the best thing about today?", "What book are you reading?", "What did you eat for breakfast?", "What's your favourite film?",
                         "What do you do to get rid of stress?", "What three words best describe you?", "What’s your favorite way to waste time?", "Do you have any pets? What are their names?",
