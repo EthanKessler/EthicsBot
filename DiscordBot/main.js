@@ -14,6 +14,7 @@ var AllowAccess = false;
 var AllowRandomPosts = false;
 const Whitelist = ['527872052716371999', '208428556106072064', '256131859950338054'];
 var CommandsAnswered = 0;
+var Waittime = (Math.random() * (14400000 - 3600000));
 
 //These are for the video selection system... idk man REWORK
 const VideoDict = ["There's No Such Thing As Orange", 'How to Be Correct About Everything All the Time', 'The Rememberer', 'The Moon is a Door to Forever', 'The Ants'];
@@ -43,9 +44,11 @@ client.on('message', async message =>{
     //     message.react("757969401856262287")
     // };
     if(AllowRandomPosts){
-        var Waittime = (Math.random() * (28800000 - 14400000));
-        RandomCrap(Waittime);
-    }
+        setTimeout(() => {
+            SendRandomMessage();
+        }, Waittime);
+        //RandomCrap(Waittime);
+    };
 
     //More random shit
     if(!message.content.startsWith(prefix) || message.author.bot) return;
@@ -256,17 +259,6 @@ client.on('message', async message =>{
         UpdateCommandsAnswered();
     }
 });
-
-function RandomCrap(Waittime){
-    setTimeout(function(){
-        var test = client.channels.cache.get('674332038182207578');
-        //test.send("executing");
-        //Sending random message
-        SendRandomMessage();
-
-
-    },Waittime);
-}
 
 function UpdateCommandsAnswered(){
     CommandsAnswered += 1;
