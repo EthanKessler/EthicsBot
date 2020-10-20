@@ -255,6 +255,9 @@ client.on('message', async message =>{
         SendRandomMessage();
         UpdateCommandsAnswered();
     }
+    if(command === "embed" && message.author.id === '527872052716371999'){
+        
+    }
 });
 
 function UpdateCommandsAnswered(){
