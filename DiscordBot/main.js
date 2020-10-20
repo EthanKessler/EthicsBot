@@ -33,17 +33,6 @@ client.once('ready', () => {
 
 client.on('message', async message =>{
     //Reacting to messages
-    var SplitMessage = message.toString().toLowerCase().split(" ");
-    if(message.channel.id === '674332038182207578'){
-        if(SplitMessage.includes("fuck") || SplitMessage.includes("fucking") || SplitMessage.includes("shit")){
-            message.react("757661899792842902");
-        if(SplitMessage.includes("fuck") && SplitMessage.includes("you") && SplitMessage.includes("dyno")){
-            message.react("757661899792842902");
-        }
-        if(SplitMessage.includes("exurb1a")){
-            message.react("767223850907336704");
-        }
-    }
     if(AllowRandomPosts){
         setTimeout(() => {
             SendRandomMessage();
