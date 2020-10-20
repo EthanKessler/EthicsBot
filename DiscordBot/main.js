@@ -54,8 +54,7 @@ client.on('message', async message =>{
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const command = args.shift().toLowerCase();
 
-    // CommandsAnswered += 1;
-    // BotLogs.send(`Command answered, current total: ${CommandsAnswered}`);
+    UpdateCommandsAnswered();
 
 
 //Adding all the commands
@@ -254,6 +253,10 @@ function RandomCrap(Waittime){
     },Waittime);
 }
 
+function UpdateCommandsAnswered(){
+    CommandsAnswered += 1;
+    BotLogs.send(`Command answered, current total: ${CommandsAnswered}`);
+}
 
 function SendRandomMessage(){
     var ChannelToSendIn = client.channels.cache.get('767108832722813020');
