@@ -7,13 +7,13 @@ const prefix = '+';
 
 const fs = require('fs');
 
-const BotLogs = client.channels.cache.get('767752850561302578');
-var CommandsAnswered = 0;
+//const BotLogs = client.channels.cache.get('767752850561302578');
 
 const CoolDown = [];
 var AllowAccess = false;
 var AllowRandomPosts = false;
 const Whitelist = ['527872052716371999', '208428556106072064', '256131859950338054'];
+var CommandsAnswered = 0;
 
 //These are for the video selection system... idk man REWORK
 const VideoDict = ["There's No Such Thing As Orange", 'How to Be Correct About Everything All the Time', 'The Rememberer', 'The Moon is a Door to Forever', 'The Ants'];
@@ -192,7 +192,7 @@ client.on('message', async message =>{
             process.exit(1);
         })
     };
-    if(command === 'CommandsAnswered' && message.author.id === '527872052716371999'){
+    if(command === 'commandsanswered' && message.author.id === '527872052716371999'){
         var NewAnsweredValue = parseInt(args[0]);
         CommandsAnswered = NewAnsweredValue;
         message.channel.send("Values updated sir!");
@@ -270,6 +270,8 @@ function RandomCrap(Waittime){
 
 function UpdateCommandsAnswered(){
     CommandsAnswered += 1;
+
+    const BotLogs = client.channels.cache.get('767752850561302578');
     BotLogs.send(`Command answered, current total: ${CommandsAnswered}`);
 };
 
