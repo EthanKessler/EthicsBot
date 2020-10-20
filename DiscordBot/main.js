@@ -40,6 +40,18 @@ client.on('message', async message =>{
         //RandomCrap(Waittime);
     };
 
+    if(message.channel.id === "674332038182207578"){
+        if(message.content.split(" ").includes("fuck") || message.content.split(" ").includes("fucking")){
+            var WhichEmoji = Math.floor(Math.random() * 10)
+            if(WhichEmoji >= 5){
+                message.react("757661899792842902")
+            }
+            if(WhichEmoji < 5){
+                message.react("740629286565970070")
+            }
+        }
+    }
+
     //More random shit
     if(!message.content.startsWith(prefix) || message.author.bot) return;
     if(!(AllowAccess || Whitelist.includes(message.author.id))) return;
@@ -161,10 +173,12 @@ client.on('message', async message =>{
     if(command === 'topic'){
         var TopicCool = message.channel.id;
         if(CoolDown.includes(TopicCool)){
-            message.channel.send("Wait 5 minutes before attempting to use this command again!");
+            var PleaseWait = message.channel.send("Wait 5 minutes before attempting to use this command again!");
+            (await PleaseWait).delete({ timeout: 10000 });
         } else {
             client.commands.get('topic').execute(message, args, message.channel.id);
-            
+            message.delete({ timeout: 10000});
+
             CoolDown.push(TopicCool);
             //message.channel.send("Command Executed");
             setTimeout(() => {
@@ -273,15 +287,15 @@ function SendRandomMessage(){
     const RandomMessages = ["Where did I leave my knife?", "I hope no one saw that...", "Why?", "Who am I?", "Where's all the milk?", "Fuck you Dyno...",
                                 "This universe is as mad as a bucket of coked up ferrets...", "The suspect has his head placed upon a block, and an axe aimed at his neck. If the man is guilty, the axe will bounce off his neck — so we burn him. If the man is not guilty, the axe will simply slice his head off.",
                                 "Field Marshal Haig is about to make yet another gargantuan effort to move his drinks cabinet six inches closer to Berlin.", "What's the story morning glory?", "There hasn’t been a war run this badly since Olaf the hairy, King of all the Vikings, ordered 80,000 battle helmets with the horns on the inside.",
-                                "Cogito ergo sum... *mutters: 'posh cunts'*", "Eternity in the company of Beelzebub and all his hellish instruments of death will be a picnic compared to five minutes with me – and this pencil.", "The path of my life is strewn with cowpats from the Devil’s own satanic herd.", "When I want your advice, I’ll give you the special signal. Which is me being sectioned under the Mental Health Act.",
-                                "I’d love to stop and chat to you but I’d rather have Type 2 diabetes.", "The guy is an epic fuck-up. He’s so dense that light bends around him.", "You know, im so tired... thats bad for two reasons actually. Firstly, its fucking irritating sleeping with a shell. Secondly I’m gonna need all of my fucking energy to fucking rip all of your bodies to bits with my bare hands and sell-off your fucking flayed skin as a sleeping bag to a fucking normal person.",
+                                "Cogito ergo sum... *mutters: 'posh [Redacted]'*", "Eternity in the company of Beelzebub and all his hellish instruments of death will be a picnic compared to five minutes with me – and this pencil.", "The path of my life is strewn with cowpats from the Devil’s own satanic herd.", "When I want your advice, I’ll give you the special signal. Which is me being sectioned under the Mental Health Act.",
+                                "I’d love to stop and chat to you but I’d rather have Type 2 diabetes.",
                                 "NOMFuP. N-O-M-F-P. Not My Fucking Problem. I quite like that. Did you like that? I’ll use that quite a lot today.", "Hello and, again, welcome to the Aperture Science computer-aided enrichment center.", "Killing you and giving you good advice aren't mutually exclusive.",
                                 "Well done, monkey. Remember that monkey hell is a real place where you will be sent at the first sign of resistance.", "We at the Ethan Kessler game labs would like to remind you that the Companion Tortoise will never threaten to stab you, and in fact, cannot speak.",
                                 "All right, I've been thinking. When life gives you lemons? Don't make lemonade. Make life take the lemons back! Get mad!", "I don't want your damn lemons! What am I supposed to do with these?!", " Do you know who I am?! I'm the man who's gonna burn your house down! With the lemons!",
                                 "I'm gonna get my engineers to invent a combustible lemon that burns your house down!", "Living is easy with eyes closed, misunderstanding all you see...", "Studies have shown that an ant can carry one hundred times its own weight, but there is no known limit to the lifting power of the average tiny eighty-year-old Spanish peasant grandmother.",
                                 "It's not that I don't want to die... I mean, I've always...it's just that life is a habit that's hard to break...", "It was amazing how many friends you could make by being bad at things, provided you were bad enough to be funny.", "NO, YOU CAN'T RIDE A CAT. WHO EVER HEARD OF THE DEATH OF RATS RIDING A CAT? THE DEATH OF RATS WOULD RIDE SOME KIND OF DOG.", "Wizards don't believe in gods in the same way that most people don't find it necessary to believe in, say, tables.",
-                                "I am not a vegetarian because I love animals; I am a vegetarian because I hate plants.", "I dislike all of you... except my owner... he's ok.", "For the last time Exurb1a i'm not a fucking coaster.", "'Fuck off' is a funny term... what am i being told to do here? Who's off? Where's off?", "Go read a book you doinks", "@ me and face the wrath of... well an angry tortoise", "My cousin goes around with all these elephants on his back... its very *impratchetal*", "You're cute. Albeit by tortoise standards...",
-                                "Go listen to some good music... none of that Exurb1a crap (Im joking master please not the tea cup again)", "For the last time Layla I don't know where i left his body... oh hi mark", "I like your funny words magic man!", "Nothing bad ever happens to the Kennedys", "Chat is running about as smooth as a soviet submarine", "Fuck turtles... NO not that way you fucking...",
+                                "I am not a vegetarian because I love animals; I am a vegetarian because I hate plants.", "I dislike all of you... except my owner... he's ok.", "For the last time Exurb1a i'm not a fucking coaster.", "Go read a book you doinks", "@ me and face the wrath of... well an angry tortoise", "My cousin goes around with all these elephants on his back... its very *impratchetal*", "You're cute. Albeit by tortoise standards...",
+                                "Go listen to some good music... none of that Exurb1a crap (Im joking master please not the tea cup again)", "For the last time Layla I don't know where i left his body... oh hi mark", "I like your funny words magic man!", "Nothing bad ever happens to the Kennedys", "Chat is running about as smooth as a soviet submarine",
                                 "I'll feed your kidneys to a siberian mountain goat", "I've been on my back for about a week now and Exurb1a hasn't noticed...", "I think he's gone...", "I miss WIT", "Exurb1a you lazy sod, talk here more often.", "Exurb1a found my meth lab...", "*pats Exurb1a*, There are many like it but this one is mine"]
     var quoteToUse = RandomMessages[Math.floor(Math.random() * RandomMessages.length)];
     ChannelToSendIn.send(quoteToUse)
