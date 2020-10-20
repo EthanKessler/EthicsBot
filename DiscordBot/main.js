@@ -41,14 +41,20 @@ client.on('message', async message =>{
     };
 
     if(message.channel.id === "674332038182207578"){
-        if(message.content.toLowerCase().split(" ").includes("fuck") || message.content.split(" ").includes("fucking")){
-            var WhichEmoji = Math.floor(Math.random() * 10)
-            if(WhichEmoji >= 5){
-                message.react("757661899792842902")
-            }
-            if(WhichEmoji < 5){
-                message.react("740629286565970070")
-            }
+        // if(message.content.toLowerCase().split(" ").includes("fuck") || message.content.split(" ").includes("fucking") || message.content.split(" ").includes("fuck!") || message.content.split(" ").includes("fuck?")){
+        //     var WhichEmoji = Math.floor(Math.random() * 10)
+        //     if(WhichEmoji >= 5){
+        //         message.react("757661899792842902")
+        //     }
+        //     if(WhichEmoji < 5){
+        //         message.react("740629286565970070")
+        //     }
+        // }
+        if(message.content.toLowerCase().split(" ").includes("imposter")){
+            message.react("767523653586780165")
+        }
+        if(message.content.toLowerCase().split(" ").includes("uwu") || message.content.toLowerCase().split(" ").includes("owo")){
+            message.react("766290436238082088")
         }
     }
 
