@@ -291,6 +291,8 @@ client.on('message', async message =>{
     }
 });
 
+
+
 function UpdateCommandsAnswered(){
     CommandsAnswered += 1;
 
