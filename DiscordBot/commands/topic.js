@@ -81,7 +81,7 @@ module.exports = {
         }
         if(channelID === "674332165227675668"){
             var Output = `Discuss: ${PhilosophyTopics[Math.floor(Math.random() * PhilosophyTopics.length)]}`;
-            if(UsedPhilosophy.length >= PhilosphyTopics.length){
+            if(UsedPhilosophy.length >= PhilosophyTopics.length){
                 UsedPhilosophy = [];
             }
 
