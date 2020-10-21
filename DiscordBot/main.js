@@ -54,13 +54,14 @@ client.on('message', async message =>{
             message.react("757661899792842902")
         };
         if(CheckMessage.includes("space")){
-            if(Math.floor(Math.random() * 11) <= 3){
+            var spacereact = Math.floor(Math.random() * 11);
+            if(spacereact <= 3){
                 message.react("684045188813160448")
             }
-            if(Math.floor(Math.random() * 11) <= 6){
+            if(spacereact <= 6 && spacereact > 3){
                 message.react("684064753319936019")
             }
-            if(Math.floor(Math.random() * 11) > 6){
+            if(spacereact > 6){
                 message.react("684064754544672842")
             }
         };
