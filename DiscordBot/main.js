@@ -42,20 +42,39 @@ client.on('message', async message =>{
     };
 
     if(message.channel.id === "674332038182207578"){
-        // if(message.content.toLowerCase().split(" ").includes("fuck") || message.content.split(" ").includes("fucking") || message.content.split(" ").includes("fuck!") || message.content.split(" ").includes("fuck?")){
-        //     var WhichEmoji = Math.floor(Math.random() * 10)
-        //     if(WhichEmoji >= 5){
-        //         message.react("757661899792842902")
-        //     }
-        //     if(WhichEmoji < 5){
-        //         message.react("740629286565970070")
-        //     }
-        // }
-        if(message.content.toLowerCase().split(" ").includes("imposter")){
+        var CheckMessage = message.content.toLowerCase().split("");
+        for(const char of CheckMessage){
+            if(char === "!" || char === "?" || char === "." || char === "," || char === "'"){
+                CheckMessage.splice(CheckMessage.indexOf(char), 1);
+            }
+        };
+        CheckMessage.join("");
+        var NowCheckThis = CheckMessage.split(" ");
+
+        if(NowCheckThis.includes("imposter")){
             message.react("767523653586780165")
         }
-        if(message.content.toLowerCase().split(" ").includes("uwu") || message.content.toLowerCase().split(" ").includes("owo")){
+        if(NowCheckThis.includes("uwu") || NowCheckThis.includes("owo")){
             message.react("766290436238082088")
+        };
+        if(message.content.toLowerCase() === "fuck you dyno"){
+            message.react("757661899792842902")
+        };
+        if(NowCheckThis.includes("space")){
+            if(Math.floor(Math.random() * 11) <= 3){
+                message.react("684045188813160448")
+            }
+            if(Math.floor(Math.random() * 11) <= 6){
+                message.react("684064753319936019")
+            }
+            if(Math.floor(Math.random() * 11) > 6){
+                message.react("684064754544672842")
+            }
+        };
+
+        var HappyTurt = Math.floor(Math.random() * 101);
+        if(HappyTurt === Math.floor(Math.random() * 101)){
+            message.react("747181139009077338")
         }
     }
 
