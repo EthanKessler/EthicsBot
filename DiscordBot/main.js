@@ -205,11 +205,11 @@ client.on('message', async message =>{
         var TopicCool = message.channel.id;
         if(CoolDown.includes(TopicCool)){
             var PleaseWait = message.channel.send("Wait 5 minutes before attempting to use this command again!");
-            try{
-                (await PleaseWait).delete({ timeout: 10000 });
-            } catch (error) {
-                message.channel.send("Something went wrong: error key 0912049")
-            }
+            // try{
+            //     (await PleaseWait).delete({ timeout: 10000 });
+            // } catch (error) {
+            //     message.channel.send("Something went wrong: error key 0912049")
+            // }
         } else {
             client.commands.get('topic').execute(message, args, message.channel.id, subs);
             //message.delete({ timeout: 10000 });
@@ -224,11 +224,11 @@ client.on('message', async message =>{
         };
 
         UpdateCommandsAnswered();
-        try{
-            message.delete();
-        } catch (error) {
-            message.channel.send("Something went horribly, catastophically, cataclysmically wrong: error key 0982346");
-        }
+        // try{
+        //     message.delete();
+        // } catch (error) {
+        //     message.channel.send("Something went horribly, catastophically, cataclysmically wrong: error key 0982346");
+        // }
     }
 
 ////ADMIN ONLY////
