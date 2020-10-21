@@ -41,42 +41,35 @@ client.on('message', async message =>{
         //RandomCrap(Waittime);
     };
 
-    // if(message.channel.id === "674332038182207578"){
-    //     var CheckMessage = message.content.toLowerCase().split("");
-    //     for(const char of CheckMessage){
-    //         if(char === "!" || char === "?" || char === "." || char === "," || char === "'"){
-    //             CheckMessage.splice(CheckMessage.indexOf(char), 1);
-    //         };
-    //     };
-    //     //CheckMessage.join("");
-    //     var NowCheckThis = CheckMessage.join("").split(" ");
+    if(message.channel.id === "674332038182207578"){
+        var CheckMessage = message.content.toLowerCase();
 
-    //     if(NowCheckThis.includes("imposter")){
-    //         message.react("767523653586780165")
-    //     }
-    //     if(NowCheckThis.includes("uwu") || NowCheckThis.includes("owo")){
-    //         message.react("766290436238082088")
-    //     };
-    //     if(message.content.toLowerCase() === "fuck you dyno"){
-    //         message.react("757661899792842902")
-    //     };
-    //     if(NowCheckThis.includes("space")){
-    //         if(Math.floor(Math.random() * 11) <= 3){
-    //             message.react("684045188813160448")
-    //         }
-    //         if(Math.floor(Math.random() * 11) <= 6){
-    //             message.react("684064753319936019")
-    //         }
-    //         if(Math.floor(Math.random() * 11) > 6){
-    //             message.react("684064754544672842")
-    //         }
-    //     };
+        if(CheckMessage.includes("imposter")){
+            message.react("767523653586780165")
+        };
+        if(CheckMessage.includes("uwu") || CheckMessage.includes("owo")){
+            message.react("766290436238082088")
+        };
+        if(message.content.toLowerCase() === "fuck you dyno"){
+            message.react("757661899792842902")
+        };
+        if(CheckMessage.includes("space")){
+            if(Math.floor(Math.random() * 11) <= 3){
+                message.react("684045188813160448")
+            }
+            if(Math.floor(Math.random() * 11) <= 6){
+                message.react("684064753319936019")
+            }
+            if(Math.floor(Math.random() * 11) > 6){
+                message.react("684064754544672842")
+            }
+        };
 
-    //     var HappyTurt = Math.floor(Math.random() * 101);
-    //     if(HappyTurt === Math.floor(Math.random() * 101)){
-    //         message.react("747181139009077338")
-    //     }
-    // }
+        var HappyTurt = Math.floor(Math.random() * 101);
+        if(HappyTurt === Math.floor(Math.random() * 101)){
+            message.react("747181139009077338")
+        };
+    };
 
     //More random shit
     if(!message.content.startsWith(prefix) || message.author.bot) return;
