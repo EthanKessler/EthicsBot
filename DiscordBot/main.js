@@ -10,6 +10,7 @@ const fs = require('fs');
 const BotLogs = client.channels.cache.get('767752850561302578');
 
 //const BotLogs = client.channels.cache.get('767752850561302578');
+const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
 
 const CoolDown = [];
 var AllowAccess = false;
@@ -110,7 +111,7 @@ client.on('message', async message =>{
         //client.commands.get('find').execute(message, args);
         const FoundFields = [];
         message.channel.send("[BETA] Your request is being processed. Due to the plethora of high calibre content produced over the past few years, the request may take up to 5 minutes to complete. Maybe enjoy a cup of coffee or tea.");
-        const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
+        // const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
         for(const subfile of subs){
             //message.channel.send(`loop is working: ${subfile}`);
             var filetext = fs.readFileSync(`./subs/${subfile}`, 'utf8');
@@ -193,7 +194,7 @@ client.on('message', async message =>{
             var PleaseWait = message.channel.send("Wait 5 minutes before attempting to use this command again!");
             //(await PleaseWait).delete({ timeout: 10000 });
         } else {
-            client.commands.get('topic').execute(message, args, message.channel.id);
+            client.commands.get('topic').execute(message, args, message.channel.id, subs);
             //message.delete({ timeout: 10000 });
 
             CoolDown.push(TopicCool);

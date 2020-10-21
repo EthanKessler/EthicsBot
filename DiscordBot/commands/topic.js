@@ -43,11 +43,29 @@ const GeneralTopics = ["How's your day going?", "What was the best thing about t
                         "What are some things you want to accomplish before you die?", "What are you best at?", "What weird or useless talent do you have?", "What job do you do?", "What video games do you play?"];
 var UsedGeneral = [];
 
+var VideoLinks = [];
+
 module.exports = {
     name: 'topic',
     description: "sends channel specific topic",
 
-    execute(message, args, channelID){
+    execute(message, args, channelID, subs){
+
+
+        if(channelID === "674332087784046614"){
+            var LinkHead = "https://www.youtube.com/watch?v="
+            for(const subfile of subs){
+
+                var VideoToPush = subfile.split("-");
+                var LinkTail = VideoToPush[1].split(".");
+
+                var FoundVideoLink = LinkHead.concat(LinkTail[0]);
+                if(FoundVideoLink){
+                    VideoLinks.push(FoundVideoLink);
+                }
+            }
+            Output = `Discuss: ${VideoLinks[Math.floor(Math.random() * VideoLinks.length)]}`;
+        }
 
         if(channelID === "674332146940379141"){
             var Output = `Discuss: ${ScienceTopics[Math.floor(Math.random() * ScienceTopics.length)]}`;
