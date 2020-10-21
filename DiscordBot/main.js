@@ -221,7 +221,7 @@ client.on('message', async message =>{
                 var CoolIndex = CoolDown.indexOf(TopicCool)
                 CoolDown.splice(CoolIndex, 1);
             }, 300000);
-        }
+        };
 
         UpdateCommandsAnswered();
         try{
