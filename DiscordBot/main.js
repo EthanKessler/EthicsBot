@@ -146,7 +146,12 @@ client.on('message', async message =>{
         .setDescription(`Relevant videos to keyword(s) (${Keyword})`)
         .addFields(FoundFields)
         .setColor('GREEN');
-        let FoundmsgEmbed = await message.author.send(FoundEmbed);
+        try{
+            let FoundmsgEmbed = await message.author.send(FoundEmbed);
+        } catch (error) {
+            message.channel.send("AAAAAAAAAAH SOMETHING WENT HORRIBLY WRONG");
+            return;
+        };
     };
     if(command === 'yt' || command === 'youtube' && message.channel.id === '674356809485516803'){
         client.commands.get('youtube').execute(message, args);
