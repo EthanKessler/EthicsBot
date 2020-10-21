@@ -46,7 +46,7 @@ client.on('message', async message =>{
     //     for(const char of CheckMessage){
     //         if(char === "!" || char === "?" || char === "." || char === "," || char === "'"){
     //             CheckMessage.splice(CheckMessage.indexOf(char), 1);
-    //         }
+    //         };
     //     };
     //     //CheckMessage.join("");
     //     var NowCheckThis = CheckMessage.join("").split(" ");
