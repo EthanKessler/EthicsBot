@@ -171,6 +171,9 @@ module.exports = {
                     message.channel.send("Something went wrong... :(");
                 }
             }
+            else if(channelID === "674332087784046614"){
+                message.channel.send(Output);
+            }
             else{
                 try{
                     let TopicEmbed = new Discord.MessageEmbed()
