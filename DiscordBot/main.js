@@ -312,7 +312,11 @@ client.on('message', async message =>{
 
         
         var TheChannel = client.channels.cache.get(channelToSendIn[0]);
-        TheChannel.send(MessageToSend);
+        //TheChannel.send(MessageToSend);
+
+        let ToBeSent = new Discord.MessageEmbed()
+            .setTitle(MessageToSend);
+        TheChannel.send(ToBeSent);
     }
     if(command === "stats" && message.author.id === '527872052716371999'){
         message.channel.send(`Commands replied to: ${CommandsAnswered}`);
