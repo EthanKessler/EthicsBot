@@ -45,6 +45,8 @@ var UsedGeneral = [];
 
 var VideoLinks = [];
 
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'topic',
     description: "sends channel specific topic",
@@ -141,7 +143,15 @@ module.exports = {
         }
         
         if(Output){
-            message.channel.send(Output);
+            // message.channel.send(Output);
+            
+            let TopicEmbed = new Discord.MessageEmbed()
+                .setColor('GREEN')
+                .setTitle("Discussion topic")
+                .setDescription(Output)
+                .setTimestamp()
+                .setFooter(`Discussion topic for channel id: ${channelID}. Ethan Kessler)`);
+            message.channel.send(TopicEmbed);
         }
     }
 }
