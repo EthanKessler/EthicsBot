@@ -154,7 +154,7 @@ module.exports = {
                 .setFooter(`Discussion topic for channel id: ${channelID}. Ethan Kessler)`);
             message.channel.send(TopicEmbed);
             } catch (error) {
-                message.channel.send("Something went wrong... :("))
+                message.channel.send("Something went wrong... :(");
             }
             
         }
