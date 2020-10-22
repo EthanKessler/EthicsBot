@@ -65,9 +65,12 @@ client.on('message', async message =>{
                 message.react("684064754544672842")
             }
         };
+        if(CheckMessage.includes("exurb1a")){
+            message.react("767223850907336704")
+        };
 
-        var HappyTurt = Math.floor(Math.random() * 101);
-        if(HappyTurt === Math.floor(Math.random() * 101)){
+        var HappyTurt = Math.floor(Math.random() * 1001);
+        if(HappyTurt === Math.floor(Math.random() * 1001)){
             message.react("747181139009077338")
         };
     };
@@ -312,11 +315,7 @@ client.on('message', async message =>{
 
         
         var TheChannel = client.channels.cache.get(channelToSendIn[0]);
-        //TheChannel.send(MessageToSend);
-
-        let ToBeSent = new Discord.MessageEmbed()
-            .setTitle(MessageToSend);
-        TheChannel.send(ToBeSent);
+        TheChannel.send(MessageToSend);
     }
     if(command === "stats" && message.author.id === '527872052716371999'){
         message.channel.send(`Commands replied to: ${CommandsAnswered}`);
