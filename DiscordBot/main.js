@@ -6,16 +6,14 @@ const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"]
 const prefix = '+';
 
 const fs = require('fs');
-
-const BotLogs = client.channels.cache.get('767752850561302578');
-
 //const BotLogs = client.channels.cache.get('767752850561302578');
 const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
 
 const CoolDown = [];
-var AllowAccess = false;
+var AllowAccess = true;
 var AllowRandomPosts = false;
-const Whitelist = ['527872052716371999', '208428556106072064', '256131859950338054'];
+const Whitelist = ['771664050907774976', '208428556106072064', '256131859950338054'];
+const Owner = '771664050907774976'
 var CommandsAnswered = 0;
 var Waittime = (Math.random() * (14400000 - 3600000));
 
@@ -90,10 +88,10 @@ client.on('message', async message =>{
         client.commands.get('ping').execute(message, args);
         UpdateCommandsAnswered();
     };
-    if(command === 'wit'){
-        message.channel.send("We'll miss you buddy. So long and thanks for all the fish...")
-        UpdateCommandsAnswered();
-    }
+    // if(command === 'wit'){
+    //     message.channel.send("We'll miss you buddy. So long and thanks for all the fish...")
+    //     UpdateCommandsAnswered();
+    //}
     if(command === 'invite' && message.channel.id === '674356809485516803'){
         client.commands.get('invite').execute(message, args);
         UpdateCommandsAnswered();
@@ -174,7 +172,7 @@ client.on('message', async message =>{
         client.commands.get('youtube').execute(message, args);
         UpdateCommandsAnswered();
     };
-    if((command === 'help' || command === 'commands') && message.channel.id === '674356809485516803'){
+    if((command === 'help' || command === 'commands') && (message.channel.id === '674356809485516803' || message.author.id === Owner)){
         let Helpembed = new Discord.MessageEmbed()
         .setTitle('Commands')
         .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
@@ -187,8 +185,7 @@ client.on('message', async message =>{
             { name: '+donate', value: 'Sends a link to the Exurb1a patreon'},
             { name: '+yt', value: 'Sends a link to the Exurb1a channel'},
             { name: '+find (+ Search term)', value: 'Searches Exurb1a videos for the search term. Ever wondered where that quote is from?'},
-            { name: '+quote', value: 'Sends a link to a library of quotes'},
-            { name: '+topic', value: 'Sends a channel specific discussion topic'}
+            { name: '+quote', value: 'Sends a link to a library of quotes'}
         )
         .setColor('GREEN')
         //.setImage(['./Assets/exurb1a.jpg'])
@@ -204,45 +201,16 @@ client.on('message', async message =>{
         //HelpmsgEmbed.delete({ timeout: 60000});
         UpdateCommandsAnswered();
     }
-    if(command === 'topic'){
-        var TopicCool = message.channel.id;
-        if(CoolDown.includes(TopicCool)){
-            var PleaseWait = message.channel.send("Wait 5 minutes before attempting to use this command again!");
-            try{
-                (await PleaseWait).delete({ timeout: 10000 });
-            } catch (error) {
-                message.channel.send("Something went wrong: error key 0912049")
-            }
-        } else {
-            client.commands.get('topic').execute(message, args, message.channel.id, subs);
-            //message.delete({ timeout: 10000 });
-
-            CoolDown.push(TopicCool);
-            //message.channel.send("Command Executed");
-            setTimeout(() => {
-                //Removes the cooldown after 5 minutes
-                var CoolIndex = CoolDown.indexOf(TopicCool)
-                CoolDown.splice(CoolIndex, 1);
-            }, 300000);
-        };
-
-        UpdateCommandsAnswered();
-        try{
-            message.delete();
-        } catch (error) {
-            message.channel.send("Something went horribly, catastophically, cataclysmically wrong: error key 0982346");
-        }
-    }
 
 ////ADMIN ONLY////
 //Bot kill switch
     if(command === 'restart'){
-        if(message.author.id !== '527872052716371999') return;
+        if(message.author.id !== Owner) return;
         message.channel.send('Goodbye world.').then(() => {
             process.exit(1);
         })
     };
-    if(command === 'commandsanswered' && message.author.id === '527872052716371999'){
+    if(command === 'commandsanswered' && message.author.id === Owner){
         var NewAnsweredValue = parseInt(args[0]);
         CommandsAnswered = NewAnsweredValue;
         message.channel.send("Values updated sir!");
@@ -302,11 +270,11 @@ client.on('message', async message =>{
         }
         UpdateCommandsAnswered();
     }
-    if(command === "sendrandom" && message.author.id === '527872052716371999'){
+    if(command === "sendrandom" && message.author.id === Owner){
         SendRandomMessage();
         UpdateCommandsAnswered();
     }
-    if(command === "send" && message.author.id === '527872052716371999'){
+    if(command === "send" && message.author.id === Owner){
         //client.commands.get('send').execute(message, args, client);
         var argsCopy = args;
 
@@ -317,7 +285,7 @@ client.on('message', async message =>{
         var TheChannel = client.channels.cache.get(channelToSendIn[0]);
         TheChannel.send(MessageToSend);
     }
-    if(command === "stats" && message.author.id === '527872052716371999'){
+    if(command === "stats" && message.author.id === Owner){
         message.channel.send(`Commands replied to: ${CommandsAnswered}`);
     }
 });
