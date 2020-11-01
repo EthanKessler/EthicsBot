@@ -303,8 +303,7 @@ function UpdateCommandsAnswered(commandAnswered){
     // console.log(commandAnswered);
 
     var logsOut = `User ID: ${commandAnswered.author.id} \
-    Content: ${commandAnswered.content} \
-    ${commandAnswered}`
+    Content: ${commandAnswered.content}`
 
     fs.appendFile('./Assets/log.txt', logsOut, function (err) {
         if(err) throw err;
