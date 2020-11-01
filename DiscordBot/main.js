@@ -288,6 +288,9 @@ client.on('message', async message =>{
     if(command === "stats" && message.author.id === Owner){
         message.channel.send(`Commands replied to: ${CommandsAnswered}`);
     }
+    if(command === "logs" && Whitelist.includes(message.author.id)){
+        message.author.send("Logs", { files: ["./Assets/log.txt"] });
+    }
 });
 
 
@@ -295,10 +298,14 @@ client.on('message', async message =>{
 function UpdateCommandsAnswered(commandAnswered){
     CommandsAnswered += 1;
 
-    console.log(commandAnswered.content);
-    console.log(commandAnswered.author.id);
-    console.log(commandAnswered);
+    // console.log(commandAnswered.content);
+    // console.log(commandAnswered.author.id);
+    // console.log(commandAnswered);
 
+    fs.appendFile('./Assets/log.txt', commandAnswered, function (err) {
+        if(err) throw err;
+        console.log('logged');
+    });
     // const BotLogs = client.channels.cache.get('767752850561302578');
     //BotLogs.send(`Command answered, current total: ${CommandsAnswered}`);
 };
