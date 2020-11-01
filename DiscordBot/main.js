@@ -86,7 +86,7 @@ client.on('message', async message =>{
 //Adding all the commands
     if(command === 'ping' && message.channel.id === '674356809485516803'){
         client.commands.get('ping').execute(message, args);
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     };
     // if(command === 'wit'){
     //     message.channel.send("We'll miss you buddy. So long and thanks for all the fish...")
@@ -94,15 +94,15 @@ client.on('message', async message =>{
     //}
     if(command === 'invite' && message.channel.id === '674356809485516803'){
         client.commands.get('invite').execute(message, args);
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     };
     if(command === 'donate' && message.channel.id === '674356809485516803'){
         client.commands.get('donate').execute(message, args);
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     };
     if(command === 'mystery' && message.channel.id === '674356809485516803'){
         client.commands.get('mystery').execute(message, args);
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     };
     if(command === 'define'){
         var SearchTerm = args[0];
@@ -114,12 +114,12 @@ client.on('message', async message =>{
 
         message.author.send(`Definition: ${Output}`);
         message.delete();
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
         //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
     };
     if(command === 'quote' || command === 'quotes' && message.channel.id === '674356809485516803'){
         client.commands.get('quote').execute(message, args);
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     };
     if(command === 'find' && (message.channel.id === '674356809485516803' || message.channel.id === "674332087784046614")){
         //client.commands.get('find').execute(message, args);
@@ -149,7 +149,7 @@ client.on('message', async message =>{
                 };
             };
         };
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
 
         //var RelevantOutput = FoundVideos.toString();
         //message.author.send(`Now to make the embed with: ${FoundFields}`);
@@ -170,7 +170,7 @@ client.on('message', async message =>{
     };
     if(command === 'yt' || command === 'youtube' && message.channel.id === '674356809485516803'){
         client.commands.get('youtube').execute(message, args);
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     };
     if((command === 'help' || command === 'commands') && (message.channel.id === '674356809485516803' || message.author.id === Owner)){
         let Helpembed = new Discord.MessageEmbed()
@@ -199,7 +199,7 @@ client.on('message', async message =>{
         }
         // let HelpmsgEmbed = await message.author.send(Helpembed)
         //HelpmsgEmbed.delete({ timeout: 60000});
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     }
 
 ////ADMIN ONLY////
@@ -214,7 +214,7 @@ client.on('message', async message =>{
         var NewAnsweredValue = parseInt(args[0]);
         CommandsAnswered = NewAnsweredValue;
         message.channel.send("Values updated sir!");
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     }
 //set bot status
     if(command === 'status'){
@@ -222,7 +222,7 @@ client.on('message', async message =>{
 
         var activity = args.join(" ");
         client.user.setActivity(activity);
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     };
 //Uptime
     if(command === 'uptime'){
@@ -241,7 +241,7 @@ client.on('message', async message =>{
         //There ye go//
         message.channel.send(uptime)
         //message.delete({ timeout: 10000 });
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     }
     ////THE MOST IMPORTANT COMMAND////
     if(command === 'allow' || command === 'access'){
@@ -255,7 +255,7 @@ client.on('message', async message =>{
             AllowAccess = true;
             message.channel.send("Access allowed");
         }
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     }
     if(command === "allowrandom" && Whitelist.includes(message.author.id)){
         if(AllowRandomPosts){
@@ -268,11 +268,11 @@ client.on('message', async message =>{
             var test = client.channels.cache.get('674332038182207578');
             message.channel.send("random shit here");
         }
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     }
     if(command === "sendrandom" && message.author.id === Owner){
         SendRandomMessage();
-        UpdateCommandsAnswered();
+        UpdateCommandsAnswered(message);
     }
     if(command === "send" && message.author.id === Owner){
         //client.commands.get('send').execute(message, args, client);
@@ -292,8 +292,12 @@ client.on('message', async message =>{
 
 
 
-function UpdateCommandsAnswered(){
+function UpdateCommandsAnswered(commandAnswered){
     CommandsAnswered += 1;
+
+    console.log(commandAnswered.content);
+    console.log(commandAnswered.author.id);
+    console.log(commandAnswered);
 
     // const BotLogs = client.channels.cache.get('767752850561302578');
     //BotLogs.send(`Command answered, current total: ${CommandsAnswered}`);
