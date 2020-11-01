@@ -302,7 +302,11 @@ function UpdateCommandsAnswered(commandAnswered){
     // console.log(commandAnswered.author.id);
     // console.log(commandAnswered);
 
-    fs.appendFile('./Assets/log.txt', commandAnswered, function (err) {
+    var logsOut = `User ID: ${commandAnswered.author.id} \
+    Content: ${commandAnswered.content} \
+    ${commandAnswered}`
+
+    fs.appendFile('./Assets/log.txt', logsOut, function (err) {
         if(err) throw err;
         console.log('logged');
     });
