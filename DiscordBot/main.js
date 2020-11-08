@@ -45,6 +45,10 @@ client.on('message', async message =>{
         if(CheckMessage.includes("imposter")){
             message.react("767523653586780165")
         };
+        if(CheckMessage.includes(("video games channel") || CheckMessage.includes("gaming channel") || CheckMessage.includes("gaming")) && message.channel.id === '705359833380945980'){
+            client.channels.get(`715560637027319808`).send(`@<${message.author.id}> https://discord.com/channels/668213545909092354/715560637027319808/766715396333502495`);
+            message.delete();
+        }
         if(CheckMessage.includes("uwu") || CheckMessage.includes("owo")){
             message.react("766290436238082088")
         };
