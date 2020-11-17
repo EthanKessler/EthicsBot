@@ -111,8 +111,18 @@ client.on('message', async message =>{
         UpdateCommandsAnswered(message);
     };
     if(command === 'suggest' && message.channel.id === '674356809485516803'){
-        client.commands.get('suggest').execute(message, args);
-        UpdateCommandsAnswered(message);
+        var suggestion = args.join(" ");
+        if (!suggestion) {
+            return message.channel;
+            message.reply("you didn't pose a question!");
+            .then(message => {
+                message.delete(10000) }); }
+        if (suggestion) {
+            message.delete();
+            const user = client.users.cache.get('689966022534627398');
+            message.user.send("**" + message.author.username() + "** made a suggestion:\n" + suggestion);
+            setTimeout() => { message.channel.reply("your suggestion was sent to the developers!"); }, 10000);
+        }
     };
     if(command === 'define'){
         var SearchTerm = args[0];
