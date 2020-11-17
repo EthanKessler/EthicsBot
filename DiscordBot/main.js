@@ -110,6 +110,10 @@ client.on('message', async message =>{
         client.commands.get('mystery').execute(message, args);
         UpdateCommandsAnswered(message);
     };
+    if(command === 'suggest' && message.channel.id === '674356809485516803'){
+        client.commands.get('suggest').execute(message, args);
+        UpdateCommandsAnswered(message);
+    };
     if(command === 'define'){
         var SearchTerm = args[0];
 
