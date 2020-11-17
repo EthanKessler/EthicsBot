@@ -74,8 +74,8 @@ client.on('message', async message =>{
         };
 
         var HappyTurt = Math.floor(Math.random() * 1001);
-        if(HappyTurt === Math.floor(Math.random() * 1001)){
-            message.react("747181139009077338")
+        if (HappyTurt === Math.floor(Math.random() * 1001)){
+          message.react("747181139009077338")
         };
     };
 
