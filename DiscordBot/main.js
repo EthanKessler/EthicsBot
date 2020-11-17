@@ -122,6 +122,7 @@ client.on('message', async message =>{
         message.delete();
         UpdateCommandsAnswered(message);
         //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
+        //oh honey don't get upset, you'll get it working! <3
     };
     if(command === 'quote' || command === 'quotes' && message.channel.id === '674356809485516803'){
         client.commands.get('quote').execute(message, args);
@@ -162,12 +163,12 @@ client.on('message', async message =>{
 
         //Lets make it an embed
         let FoundEmbed = new Discord.MessageEmbed()
-        .setTitle('I found videos!')
-        .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
-        .setDescription(`Relevant videos to keyword(s) (${Keyword})`)
-        .addFields(FoundFields)
-        .setColor('GREEN');
-        try{
+            .setTitle('I found videos!')
+            .setURL('https://www.youtube.com/channel/UCimiUgDLbi6P17BdaCZpVbg')
+            .setDescription(`Relevant videos to keyword(s) (${Keyword})`)
+            .addFields(FoundFields)
+            .setColor('GREEN');
+        try {
             let FoundmsgEmbed = await message.author.send(FoundEmbed);
         } catch (error) {
             message.channel.send("AAAAAAAAAAH SOMETHING WENT HORRIBLY WRONG");
@@ -243,7 +244,7 @@ client.on('message', async message =>{
         let minutes = Math.floor(totalSeconds / 60);
         let seconds = Math.floor(totalSeconds % 60);
 
-        let uptime = `**Uptime:**\n${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
+        let uptime = `**Uptime:**\n${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds!`;
         //There ye go//   //lmao I love you//
         message.channel.send(uptime)
         //message.delete({ timeout: 10000 });

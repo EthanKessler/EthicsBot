@@ -5,28 +5,28 @@ output is the same as Rp
 */
 
 // SCIENCE
-let ꕷciᐪ = ["This command is currently under re-construction! Please be patient."];
-let °ꕷci = Math.floor(Math.random() * ꕷciᐪ.length);
+let sciTopics = ["This command is currently under re-construction! Please be patient."];
+let sciResponse = Math.floor(Math.random() * sciTopics.length);
 
 // PHILOSOPHY
-let p꘥iᐪ = ["This command is currently under re-construction! Please be patient."];
-let °p꘥i = Math.floor(Math.random() * p꘥iᐪ.length);
+let philoTopics = ["This command is currently under re-construction! Please be patient."];
+let philoResponse = Math.floor(Math.random() * philoTopics.length);
 
 // THEOLOGY￼
-let ৳hᐪ = ["This command is currently under re-construction! Please be patient."];
-let °৳h = Math.floor(Math.random() * ৳hᐪ.length);
+let theoTopics = ["This command is currently under re-construction! Please be patient."];
+let theoResponse = Math.floor(Math.random() * theoTopics.length);
 
 // POLITICS
-let ᕿolᐪ = ["This command is currently under re-construction! Please be patient."];
-let °ᕿol = Math.floor(Math.random() * ᕿolᐪ.length);
+let polTopics = ["This command is currently under re-construction! Please be patient."];
+let polResponse = Math.floor(Math.random() * polTopics.length);
 
 // HISTORY
-let ৸𐭦ᐪ = ["This command is currently under re-construction! Please be patient."];
-let °৸𐭦 = Math.floor(Math.random() * ৸𐭦ᐪ.length);
+let hstTopics = ["This command is currently under re-construction! Please be patient."];
+let hstResponse = Math.floor(Math.random() * hstTopics.length);
 
 // GENERAL
-let ⍩ᐪ = ["Test 1", "Test 2", "Test 3", "Test 4"];
-let °⍩ = Math.floor(Math.random() * ⍩ᐪ.length);
+let convoTopics = ["Test 1", "Test 2", "Test 3", "Test 4"];
+let convoResponse = Math.floor(Math.random() * convoTopics.length);
 
 
 
@@ -39,32 +39,32 @@ module.exports = {
 
     // SCIENCE
     if(channelID === "674332146940379141") {
-      message.channel.send("Consider:" + °ꕷci + "");
+      message.channel.send("Consider:" + sciTopics + "");
     }
 
     // PHILOSOPHY
     if(channelID === "674332165227675668") {
-      message.channel.send("Contemplate:" + °p꘥i + "");
+      message.channel.send("Contemplate:" + philoTopics + "");
     }
 
     // THEOLOGY
     if(channelID === "740951767399006329") {
-      message.channel.send("Ponder:" + °৳h + "");
+      message.channel.send("Ponder:" + °theoTopics + "");
     }
 
-    // THEOLOGY
+    // POLITICS
     if(channelID === "728655406758625282") {
-      message.channel.send("Converse:" + °ᕿol + "");
+      message.channel.send("Converse:" + polTopics + "");
     }
 
     // HISTORY
     if(channelID === "726072510218633237") {
-      message.channel.send("Assess:" + °৸𐭦 + "");
+      message.channel.send("Assess:" + hstTopics + "");
     }
 
     // GENERAL
     if(channelID === "728655406758625282") {
-      message.channel.send(°⍩);
+      message.channel.send(convoTopics);
     }
   }
 }
