@@ -12,7 +12,7 @@ const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
 const CoolDown = [];
 var AllowAccess = true;
 var AllowRandomPosts = false;
-const Whitelist = ['776852904983396412', '208428556106072064', '256131859950338054'];
+const Whitelist = ['776852904983396412', '208428556106072064', '256131859950338054', '689966022534627398'];
 const Owner = '776852904983396412'
 var CommandsAnswered = 0;
 var Waittime = (Math.random() * (14400000 - 3600000));
