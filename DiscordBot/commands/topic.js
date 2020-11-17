@@ -49,7 +49,7 @@ module.exports = {
 
     // THEOLOGY
     if(channelID === "740951767399006329") {
-      message.channel.send("Ponder:" + °theoTopics + "");
+      message.channel.send("Ponder:" + theoTopics + "");
     }
 
     // POLITICS
