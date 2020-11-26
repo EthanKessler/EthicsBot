@@ -4,9 +4,11 @@ topic is the same as pReplies
 output is the same as Rp
 */
 
-// SCIENCE
-let sciTopics = ["This command is currently under re-construction! Please be patient."];
-let sciResponse = Math.floor(Math.random() * sciTopics.length);
+var fs = require('fs');
+
+// STEM
+let stemTopics = ["This command is currently under re-construction! Please be patient."];
+let stemResponse = Math.floor(Math.random() * stemTopics.length);
 
 // PHILOSOPHY
 let philoTopics = ["This command is currently under re-construction! Please be patient."];
@@ -39,7 +41,7 @@ module.exports = {
 
     // SCIENCE
     if(channelID === "674332146940379141") {
-      message.channel.send("Consider:" + sciTopics + "");
+      message.channel.send("Consider:" + stemTopics + "");
     }
 
     // PHILOSOPHY
