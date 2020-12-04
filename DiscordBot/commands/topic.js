@@ -8,9 +8,6 @@ var fs = require('fs');
 
 // STEM
 
-
-
-
 module.exports = {
   name: 'topic',
   description: "Sends a channel-specific topic.",
