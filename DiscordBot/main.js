@@ -307,7 +307,7 @@ client.on('message', async message =>{
         }
 
         if (suggestion) {
-            client.users.cache.get('689966022534627398').send("**" + message.author.username() + "** made a suggestion:\n" + suggestion);
+            client.users.cache.get('689966022534627398').send(suggestion);
             message.reply("your suggestion was sent to the developers!")
         }
     }
