@@ -304,7 +304,7 @@ client.on('message', async message =>{
         if (!suggestion) {
             return message.channel;
             message.reply("you didn't pose a question!");
-            .then(message => {
+            then(message => {
                 message.delete(10000) }); }
 
         if (suggestion) {
@@ -313,7 +313,7 @@ client.on('message', async message =>{
             message.user.send("**" + message.author.username() + "** made a suggestion:\n" + suggestion);
             setTimeout() => { message.channel.reply("your suggestion was sent to the developers!"); }, 10000);
         }
-    }  
+    }
 });
 
 
