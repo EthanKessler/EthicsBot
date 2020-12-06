@@ -307,10 +307,9 @@ client.on('message', async message =>{
         }
 
         if (suggestion) {
-            message.delete();
             const user = client.users.cache.get('689966022534627398');
             message.user.send("**" + message.author.username() + "** made a suggestion:\n" + suggestion);
-            setTimeout() => { message.channel.reply("your suggestion was sent to the developers!"); }, 10000);
+            message.reply("your suggestion was sent to the developers!")
         }
     }
 });
