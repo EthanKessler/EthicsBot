@@ -40,10 +40,10 @@ client.on('message', async message =>{
     };
     var CheckMessage = message.content.toLowerCase();
 
-    if(CheckMessage.includes(("video games channel") || CheckMessage.includes("gaming channel") || CheckMessage.includes("gaming")) && message.channel.id === '705359833380945980'){
-        client.channels.cache.get(`715560637027319808`).send(`@<${message.author.id}> https://discord.com/channels/668213545909092354/715560637027319808/766715396333502495`);
-        message.delete();
-    }
+//    if(CheckMessage.includes(("video games channel") || CheckMessage.includes("gaming channel") || CheckMessage.includes("gaming")) && message.channel.id === '705359833380945980'){
+//        client.channels.cache.get(`715560637027319808`).send(`@<${message.author.id}> https://discord.com/channels/668213545909092354/715560637027319808/766715396333502495`);
+//        message.delete();
+//    }
 
     if(message.channel.id === "674332038182207578"){
         //var CheckMessage = message.content.toLowerCase();
@@ -307,8 +307,7 @@ client.on('message', async message =>{
         }
 
         if (suggestion) {
-            const user = client.users.cache.get('689966022534627398');
-            message.user.send("**" + message.author.username() + "** made a suggestion:\n" + suggestion);
+            client.users.cache.get('689966022534627398').send("**" + message.author.username() + "** made a suggestion:\n" + suggestion);
             message.reply("your suggestion was sent to the developers!")
         }
     }
