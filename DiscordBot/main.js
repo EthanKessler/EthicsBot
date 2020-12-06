@@ -302,10 +302,9 @@ client.on('message', async message =>{
     if(command === "suggest"){
         var suggestion = args[0];
         if (!suggestion) {
-            return message.channel;
             message.reply("you didn't pose a question!");
-            .then(message => {
-                message.delete(10000) }); }
+            return;
+        }
 
         if (suggestion) {
             message.delete();
