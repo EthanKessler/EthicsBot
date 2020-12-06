@@ -193,6 +193,7 @@ client.on('message', async message =>{
             { name: '+yt', value: 'Sends a link to the Exurb1a channel.'},
             { name: '+find <keyword(s)>', value: 'Searches Exurb1a videos for specifed keyword(s). Ever wondered where that quote is from?'},
             { name: '+quote', value: 'Sends a link to a library of quotes.'}
+            { name: '+suggest <question>', value: 'Send a topic suggestion to the developer!'}
         )
         .setColor('GREEN')
         //.setImage(['./Assets/exurb1a.jpg'])
