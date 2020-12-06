@@ -16,6 +16,7 @@ const Whitelist = ['776852904983396412', '208428556106072064', '2561318599503380
 const Owner = '776852904983396412'
 var CommandsAnswered = 0;
 var Waittime = (Math.random() * (14400000 - 3600000));
+const Cool = new Set();
 
 client.commands = new Discord.Collection();
 
@@ -301,6 +302,15 @@ client.on('message', async message =>{
 
     if(command === "suggest"){
         var suggestion = args[0];
+        if (Cool.has(message.author.id)) {
+            message.channel.send("Please wait 5 minutes before making another suggestion." + message.author);
+        }
+        else {
+            Cool.add(message.author.id);
+            setTimeout(() => {
+                Cool.delete(message.author.id);
+            }, 300000);
+        }
         if (!suggestion) {
             message.reply("you didn't pose a question!");
             return;
