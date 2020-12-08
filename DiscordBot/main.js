@@ -57,22 +57,7 @@ client.on('message', async message =>{
         if(message.content.toLowerCase() === "fuck you dyno"){
             message.react("757661899792842902")
         };
-        if(CheckMessage.includes("space")){
-            var spacereact = Math.floor(Math.random() * 11);
-            if(spacereact <= 3){
-                message.react("684045188813160448")
-            }
-            if(spacereact <= 6 && spacereact > 3){
-                message.react("684064753319936019")
-            }
-            if(spacereact > 6){
-                message.react("684064754544672842")
-            }
-        };
-        if(CheckMessage.includes("exurb1a")){
-            message.react("767223850907336704")
-        };
-
+        
         var HappyTurt = Math.floor(Math.random() * 1001);
         if (HappyTurt === Math.floor(Math.random() * 1001)){
           message.react("747181139009077338")
