@@ -46,7 +46,7 @@ client.on('message', async message =>{
 //    }
 
     if(message.channel.id === "674332038182207578"){
-        //var CheckMessage = message.content.toLowerCase();
+        var CheckMessage = message.content.toLowerCase();
 
         if(CheckMessage.includes("imposter")){
             message.react("767523653586780165")
@@ -54,7 +54,7 @@ client.on('message', async message =>{
         if(CheckMessage.includes("uwu") || CheckMessage.includes("owo")){
             message.react("766290436238082088")
         };
-        if(message.content.toLowerCase() === "fuck you dyno"){
+        if(CheckMessage.includes("fuck you")){
             message.react("757661899792842902")
         };
         
@@ -177,7 +177,7 @@ client.on('message', async message =>{
             { name: '+donate', value: 'Sends a link to the Exurb1a patreon.'},
             { name: '+yt', value: 'Sends a link to the Exurb1a channel.'},
             { name: '+find <keyword(s)>', value: 'Searches Exurb1a videos for specifed keyword(s). Ever wondered where that quote is from?'},
-            { name: '+quote', value: 'Sends a link to a library of quotes.'}
+            { name: '+quote', value: 'Sends a link to a library of quotes.'},
             { name: '+suggest <question>', value: 'Send a topic suggestion to the developer!'}
         )
         .setColor('GREEN')
