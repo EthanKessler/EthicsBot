@@ -45,6 +45,7 @@ client.on('message', async message =>{
 //        message.delete();
 //    }
 
+<<<<<<< HEAD
 //    if(message.channel.id === "674332038182207578"){
 
 //        if(CheckMessage.includes("imposter")){
@@ -62,6 +63,26 @@ client.on('message', async message =>{
 //          message.react("747181139009077338")
 //        };
 //    };
+=======
+    if(message.channel.id === "674332038182207578"){
+        var CheckMessage = message.content.toLowerCase();
+
+        if(CheckMessage.includes("imposter")){
+            message.react("767523653586780165")
+        };
+        if(CheckMessage.includes("uwu") || CheckMessage.includes("owo")){
+            message.react("766290436238082088")
+        };
+        if(CheckMessage.includes("fuck you")){
+            message.react("757661899792842902")
+        };
+        
+        var HappyTurt = Math.floor(Math.random() * 1001);
+        if (HappyTurt === Math.floor(Math.random() * 1001)){
+          message.react("747181139009077338")
+        };
+    };
+>>>>>>> 85ff4c1d3804a4dbedeced7707620ac765dad8c1
 
     //More random shit
     if(!message.content.startsWith(prefix) || message.author.bot) return;
@@ -105,8 +126,7 @@ client.on('message', async message =>{
         message.author.send(`Definition: ${Output}`);
         message.delete();
         UpdateCommandsAnswered(message);
-        //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
-        //oh honey don't get upset, you'll get it working! <3
+        //client.command.get('search').execute(message, SearchTerm);
     };
     if(command === 'quote' || command === 'quotes' && message.channel.id === '674356809485516803'){
         client.commands.get('quote').execute(message, args);
@@ -176,7 +196,7 @@ client.on('message', async message =>{
             { name: '+donate', value: 'Sends a link to the Exurb1a patreon.'},
             { name: '+yt', value: 'Sends a link to the Exurb1a channel.'},
             { name: '+find <keyword(s)>', value: 'Searches Exurb1a videos for specifed keyword(s). Ever wondered where that quote is from?'},
-            { name: '+quote', value: 'Sends a link to a library of quotes.'}
+            { name: '+quote', value: 'Sends a link to a library of quotes.'},
             { name: '+suggest <question>', value: 'Send a topic suggestion to the developer!'}
         )
         .setColor('GREEN')
@@ -230,7 +250,6 @@ client.on('message', async message =>{
         let seconds = Math.floor(totalSeconds % 60);
 
         let uptime = `**Uptime:**\n${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds!`;
-        //There ye go//   //lmao I love you//
         message.channel.send(uptime)
         //message.delete({ timeout: 10000 });
         UpdateCommandsAnswered(message);
