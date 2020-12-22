@@ -45,24 +45,23 @@ client.on('message', async message =>{
 //        message.delete();
 //    }
 
-    if(message.channel.id === "674332038182207578"){
-        //var CheckMessage = message.content.toLowerCase();
+//    if(message.channel.id === "674332038182207578"){
 
-        if(CheckMessage.includes("imposter")){
-            message.react("767523653586780165")
-        };
-        if(CheckMessage.includes("uwu") || CheckMessage.includes("owo")){
-            message.react("766290436238082088")
-        };
-        if(message.content.toLowerCase() === "fuck you dyno"){
-            message.react("757661899792842902")
-        };
-        
-        var HappyTurt = Math.floor(Math.random() * 1001);
-        if (HappyTurt === Math.floor(Math.random() * 1001)){
-          message.react("747181139009077338")
-        };
-    };
+//        if(CheckMessage.includes("imposter")){
+//            message.react("767523653586780165")
+//        };
+//        if(CheckMessage.includes("uwu") || CheckMessage.includes("owo")){
+//            message.react("766290436238082088")
+//        };
+//        if(message.content.toLowerCase() === "fuck you dyno"){
+//            message.react("757661899792842902")
+//        };
+
+//        var HappyTurt = Math.floor(Math.random() * 1001);
+//        if (HappyTurt === Math.floor(Math.random() * 1001)){
+//          message.react("747181139009077338")
+//        };
+//    };
 
     //More random shit
     if(!message.content.startsWith(prefix) || message.author.bot) return;
