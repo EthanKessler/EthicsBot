@@ -106,8 +106,7 @@ client.on('message', async message =>{
         message.author.send(`Definition: ${Output}`);
         message.delete();
         UpdateCommandsAnswered(message);
-        //client.command.get('search').execute(message, SearchTerm); <-- THIS STILL ISNT FUCKING WORKING - TIME TO REWORK
-        //oh honey don't get upset, you'll get it working! <3
+        //client.command.get('search').execute(message, SearchTerm);
     };
     if(command === 'quote' || command === 'quotes' && message.channel.id === '674356809485516803'){
         client.commands.get('quote').execute(message, args);
@@ -231,7 +230,6 @@ client.on('message', async message =>{
         let seconds = Math.floor(totalSeconds % 60);
 
         let uptime = `**Uptime:**\n${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds!`;
-        //There ye go//   //lmao I love you//
         message.channel.send(uptime)
         //message.delete({ timeout: 10000 });
         UpdateCommandsAnswered(message);
