@@ -96,6 +96,13 @@ client.on('message', async message =>{
         client.commands.get('mystery').execute(message, args);
         UpdateCommandsAnswered(message);
     };
+    if(message.channel.id === '702797960861450261'){
+        switch(command){
+            case "cat":
+                client.commands.get('animal').cat(message, args);
+        }
+        UpdateCommandsAnswered(message);
+    };
     if(command === 'define'){
         var SearchTerm = args[0];
 
