@@ -97,9 +97,13 @@ client.on('message', async message =>{
         UpdateCommandsAnswered(message);
     };
     if(message.channel.id === '702797960861450261'){
-        switch(command){
+        switch(command)
+        {
             case "cat":
                 client.commands.get('animal').cat(message, args);
+                break;
+            default:
+                break;
         }
         UpdateCommandsAnswered(message);
     };
