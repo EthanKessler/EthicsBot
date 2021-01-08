@@ -153,11 +153,6 @@ client.on('message', async message =>{
             };
         };
         UpdateCommandsAnswered(message);
-        try{
-            message.delete(3);
-        } catch (error) {
-            print("Error")
-        }
 
         //var RelevantOutput = FoundVideos.toString();
         //message.author.send(`Now to make the embed with: ${FoundFields}`);
@@ -173,6 +168,12 @@ client.on('message', async message =>{
             let FoundmsgEmbed = await message.author.send(FoundEmbed);
         } catch (error) {
             message.channel.send("AAAAAAAAAAH SOMETHING WENT HORRIBLY WRONG");
+            return;
+        };
+        try {
+            message.delete(3);
+        } catch (error) {
+            print("Error")
             return;
         };
     };
