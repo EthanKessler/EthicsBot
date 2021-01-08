@@ -127,7 +127,7 @@ client.on('message', async message =>{
     if(command === 'find' && (message.channel.id === '674356809485516803' || message.channel.id === "674332087784046614")){
         //client.commands.get('find').execute(message, args);
         const FoundFields = [];
-        message.channel.send("[BETA] Your request is being processed. Due to the plethora of high calibre content produced over the past few years, the request may take up to 5 minutes to complete. Maybe enjoy a cup of coffee or tea.");
+        //message.channel.send("[BETA] Your request is being processed. Due to the plethora of high calibre content produced over the past few years, the request may take up to 5 minutes to complete. Maybe enjoy a cup of coffee or tea.");
         // const subs = fs.readdirSync('./subs/').filter(file => file.endsWith('.vtt'));
         for(const subfile of subs){
             //message.channel.send(`loop is working: ${subfile}`);
@@ -153,6 +153,11 @@ client.on('message', async message =>{
             };
         };
         UpdateCommandsAnswered(message);
+        try{
+            message.delete(3);
+        } catch (error) {
+            print("Error")
+        }
 
         //var RelevantOutput = FoundVideos.toString();
         //message.author.send(`Now to make the embed with: ${FoundFields}`);
