@@ -63,6 +63,14 @@ client.on('message', async message =>{
         if (HappyTurt === Math.floor(Math.random() * 1001)){
           message.react("747181139009077338")
         };
+
+        if (message.author.id === "674719244998541353")
+        {
+            if(Math.floor(Math.random() * 10) === Math.floor(Math.random() * 10))
+            {
+                message.react("767223850907336704")
+            }
+        };
     };
 
     //More random shit
@@ -167,11 +175,10 @@ client.on('message', async message =>{
         try {
             let FoundmsgEmbed = await message.author.send(FoundEmbed);
         } catch (error) {
-            message.channel.send("AAAAAAAAAAH SOMETHING WENT HORRIBLY WRONG");
             return;
         };
         try {
-            message.delete(3);
+            message.delete();
         } catch (error) {
             print("Error")
             return;
@@ -195,12 +202,14 @@ client.on('message', async message =>{
             { name: '+yt', value: 'Sends a link to the Exurb1a channel.'},
             { name: '+find <keyword(s)>', value: 'Searches Exurb1a videos for specifed keyword(s). Ever wondered where that quote is from?'},
             { name: '+quote', value: 'Sends a link to a library of quotes.'},
-            { name: '+suggest <question>', value: 'Send a topic suggestion to the developer!'}
+            { name: '+suggest <question>', value: 'Send a topic suggestion to the developer!'},
+            { name: '+creator', value: 'Ever wondered who made me?'},
+            { name: '+cat', value: 'Used in the animals channel, sends a cute photo of a cat'}
         )
         .setColor('GREEN')
         //.setImage(['./Assets/exurb1a.jpg'])
         .setTimestamp()
-        .setAuthor('EthanKessler', null, 'https://ethankessler.itch.io/')
+        .setAuthor('EthanKessler', null, 'https://twitter.com/EthanKesslerDev')
         try {
             let HelpmsgEmbed = await message.author.send(Helpembed)
         } catch (error) {
@@ -210,6 +219,19 @@ client.on('message', async message =>{
         // let HelpmsgEmbed = await message.author.send(Helpembed)
         //HelpmsgEmbed.delete({ timeout: 60000});
         UpdateCommandsAnswered(message);
+    }
+    if(command === 'creator'){
+        try{
+            message.author.send("I was made by: https://twitter.com/EthanKesslerDev");
+        } catch (error) {
+            message.react("❌")
+            return;
+        };
+        try{
+            message.delete()
+        } catch (error) {
+            return;
+        }
     }
 
 ////ADMIN ONLY////
@@ -309,7 +331,7 @@ client.on('message', async message =>{
         }
 
         if (suggestion) {
-            client.users.cache.get('689966022534627398').send(suggestion);
+            client.users.cache.get('776852904983396412').send(suggestion);
             message.reply("your suggestion was sent to the developers!")
         }
     }
@@ -337,7 +359,10 @@ function UpdateCommandsAnswered(commandAnswered){
 function SendRandomMessage(){
     var ChannelToSendIn = client.channels.cache.get('674332038182207578');
     const RandomMessages = [
-        "Where did I leave my knife?", "I hope no one saw that...", "Why?", "Who am I?", "Where's all the milk?", "Fuck you Dyno...", "This universe is as mad as a bucket of coked up ferrets...", "The suspect has his head placed upon a block, and an axe aimed at his neck. If the man is guilty, the axe will bounce off his neck — so we burn him. If the man is not guilty, the axe will simply slice his head off.", "Field Marshal Haig is about to make yet another gargantuan effort to move his drinks cabinet six inches closer to Berlin.", "What's the story morning glory?", "There hasn’t been a war run this badly since Olaf the hairy, King of all the Vikings, ordered 80,000 battle helmets with the horns on the inside.", "Cogito ergo sum... *mutters: 'posh [Redacted]'*", "Eternity in the company of Beelzebub and all his hellish instruments of death will be a picnic compared to five minutes with me – and this pencil.", "The path of my life is strewn with cowpats from the Devil’s own satanic herd.", "When I want your advice, I’ll give you the special signal. Which is me being sectioned under the Mental Health Act.", "I’d love to stay and chat, but honestly, I’d rather have Type 2 diabetes.", "NOMFuP. N-O-M-F-P. Not My Fucking Problem. I quite like that. Do you like that? I’ll use that quite a lot today.", "Hello and, again, welcome to the Aperture Science computer-aided enrichment center.", "Killing you and giving you good advice aren't mutually exclusive.", "Well done, monkey. Remember that monkey hell is a real place where you will be sent at the first sign of resistance.", "We at the Ethan Kessler game labs would like to remind you that the Companion Tortoise will never threaten to stab you, and in fact, cannot speak.", "All right, I've been thinking. When life gives you lemons? Don't make lemonade. Make life take the lemons back! Get mad!", "I don't want your damn lemons! What am I supposed to do with these?!", " Do you know who I am?! I'm the man who's gonna burn your house down! With the lemons!", "I'm gonna get my engineers to invent a combustible lemon that burns your house down!", "Living is easy with eyes closed, misunderstanding all you see...", "Studies have shown that an ant can carry one hundred times its own weight, but there is no known limit to the lifting power of the average tiny eighty-year-old Spanish peasant grandmother.", "It's not that I don't want to die... I mean, I've always... it's just that life is kind of a habit that's hard to break...", "It was amazing how many friends you could make by being bad at things, provided you were bad enough to be funny.", "NO, YOU CAN'T RIDE A CAT. WHO EVER HEARD OF THE DEATH OF RATS RIDING A CAT? THE DEATH OF RATS WOULD RIDE SOME KIND OF DOG.", "Wizards don't believe in gods in the same way that most people don't find it necessary to believe in, say, tables.", "I am not a vegetarian because I love animals; I am a vegetarian because I hate plants.", "I dislike all of you... except my owner... he's ok. And maybe Ash, but just barely.", "For the last time Exurb1a i'm not a fucking coaster.", "Go read a book you doinks", "@ me and face the wrath of... well, an angry tortoise", "My cousin goes around with all these elephants on his back... its very *impratchetal*", "You're cute. Albeit by tortoise standards...", "Go listen to some good music... none of that Exurb1a crap (I'm joking master please not the tea cup again)", "For the last time Layla, I don't know where I left his body-- oh, hi Mark", "I like your funny words magic man!", "Nothing bad ever happens to the Kennedys", "Chat is running about as smooth as a soviet submarine", "I'll feed your kidneys to a siberian mountain goat", "I've been on my back for about a week now and Exurb1a hasn't noticed...", "I think he's gone...", "I miss WIT", "Exurb1a you lazy sod, talk here more often.", "Exurb1a found my meth lab...", "*pats Exurb1a* there are many like it but this one is mine" ];
+        "Where did I leave my knife?", "I hope no one saw that...", "Why?", "Who am I?", "Where's all the milk?", "Fuck you Dyno...", "This universe is as mad as a bucket of coked up ferrets...", "The suspect has his head placed upon a block, and an axe aimed at his neck. If the man is guilty, the axe will bounce off his neck — so we burn him. If the man is not guilty, the axe will simply slice his head off.", "Field Marshal Haig is about to make yet another gargantuan effort to move his drinks cabinet six inches closer to Berlin.", "What's the story morning glory?", "There hasn’t been a war run this badly since Olaf the hairy, King of all the Vikings, ordered 80,000 battle helmets with the horns on the inside.", "Cogito ergo sum... *mutters: 'posh [Redacted]'*", "Eternity in the company of Beelzebub and all his hellish instruments of death will be a picnic compared to five minutes with me – and this pencil.", "The path of my life is strewn with cowpats from the Devil’s own satanic herd.", "Hello and, again, welcome to the Aperture Science computer-aided enrichment center.", "Killing you and giving you good advice aren't mutually exclusive.", "Well done, monkey. Remember that monkey hell is a real place where you will be sent at the first sign of resistance.", "We at the Ethan Kessler game labs would like to remind you that the Companion Tortoise will never threaten to stab you, and in fact, cannot speak.", "All right, I've been thinking. When life gives you lemons? Don't make lemonade. Make life take the lemons back! Get mad!", "I don't want your damn lemons! What am I supposed to do with these?!", " Do you know who I am?! I'm the man who's gonna burn your house down! With the lemons!", "I'm gonna get my engineers to invent a combustible lemon that burns your house down!", "Living is easy with eyes closed, misunderstanding all you see...", "Studies have shown that an ant can carry one hundred times its own weight, but there is no known limit to the lifting power of the average tiny eighty-year-old Spanish peasant grandmother.", "It's not that I don't want to die... I mean, I've always... it's just that life is kind of a habit that's hard to break...", "It was amazing how many friends you could make by being bad at things, provided you were bad enough to be funny.", "NO, YOU CAN'T RIDE A CAT. WHO EVER HEARD OF THE DEATH OF RATS RIDING A CAT? THE DEATH OF RATS WOULD RIDE SOME KIND OF DOG.", "Wizards don't believe in gods in the same way that most people don't find it necessary to believe in, say, tables.", "I am not a vegetarian because I love animals; I am a vegetarian because I hate plants.", "I dislike all of you... except my owner... he's ok. And maybe Ash, but just barely.", "For the last time Exurb1a i'm not a fucking coaster.", "Go read a book you doinks", "@ me and face the wrath of... well, an angry tortoise", "My cousin goes around with all these elephants on his back... its very *impratchetal*", "You're cute. Albeit by tortoise standards...", "Go listen to some good music... none of that Exurb1a crap (I'm joking master please not the tea cup again)", "For the last time Layla, I don't know where I left his body-- oh, hi Mark", "I like your funny words magic man!", "Nothing bad ever happens to the Kennedys", "Chat is running about as smooth as a soviet submarine", "I'll feed your kidneys to a siberian mountain goat", "I've been on my back for about a week now and Exurb1a hasn't noticed...", "I think he's gone...", "I miss WIT", "Exurb1a you lazy sod, talk here more often.", "Exurb1a found my meth lab...", "*pats Exurb1a* there are many like it but this one is mine", 
+        "'Good authors too who once knew better words, Now only use four-letter words, Writing prose. Anything Goes.' ~ Cole Porter", "Time is a drug. Too much of it kills you. ~ *TP, Small Gods*", "If you trust in yourself…and believe in your dreams…and follow your star…you’ll still get beaten by people who spent their time working hard and learning things and weren’t so lazy.", "Look, that’s why there’s rules, understand? So that you think before you break ’em. ~ *TP, Thief of Time*", "In the beginning there was nothing, which exploded.", "The entire universe has been neatly divided into things to (a) mate with, (b) eat, (c) run away from, and (d) rocks.", "Give a man a fire and he’s warm for a day, but set fire to him and he’s warm for the rest of his life.", `“I meant,” said Ipslore bitterly, “what is there in this world that truly makes living worthwhile?”
+        Death thought about it.
+        CATS, he said eventually. CATS ARE NICE.`, "It is said that your life flashes before your eyes just before you die. That is true, it’s called Life.", "He’d been wrong, there was a light at the end of the tunnel, and it was a flamethrower.", "Some humans would do anything to see if it was possible to do it. If you put a large switch in some cave somewhere, with a sign on it saying ‘End-of-the-World Switch. PLEASE DO NOT TOUCH’, the paint wouldn’t even have time to dry.", "The ships hung in the sky in much the same way that bricks don’t.", `“Space,” it says, “is big. Really big. You just won’t believe how vastly, hugely, mindbogglingly big it is. I mean, you may think it’s a long way down the road to the chemist’s, but that’s just peanuts to space.`, "A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.", "The chances of finding out what’s really going on in the universe are so remote, the only thing to do is hang the sense of it and keep yourself occupied.", "Shee, you guys are so unhip it’s a wonder your bums don’t fall off.", `“Forty-two,” said Deep Thought, with infinite majesty and calm.`, "He was staring at the instruments with the air of one who is trying to convert Fahrenheit to centigrade in his head while his house is burning down.", "There is a moment in every dawn when light floats, there is the possibility of magic. Creation holds its breath. ~ *douglas adams*", "There is an art, it says, or rather, a knack to flying. The knack lies in learning how to throw yourself at the ground and miss.", "t is a mistake to think you can solve any major problems just with potatoes.", "***Don’t Panic.***", "Almost all of your ancestors would have given their legs to live for a few hours in the time we live in now. And all you accomplished today was successfully holding in a fart... for a while at least.", "***nothing means anything and we're all going to die...***", "He was a self-made man who owed his lack of success to nobody.", "How about we just make me Mod around here.", "I'll be around after you're all long gone... thats a shame... My species were never really good at winning races.", "What a wonderful, wonderful, confusing, infuriating and shitty world. It'll be difficult sometimes, but look around, breathe if you can, and enjoy what time you have. https://www.barnesandnoble.com/blog/sci-fi-fantasy/wp-content/nas-uploads/sites/4/2015/03/turtle.gif", "<@776852904983396412> DuMbAsS"];
     var quoteToUse = RandomMessages[Math.floor(Math.random() * RandomMessages.length)];
     ChannelToSendIn.send(quoteToUse)
 };
