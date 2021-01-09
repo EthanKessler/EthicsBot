@@ -213,7 +213,7 @@ client.on('message', async message =>{
         try {
             let HelpmsgEmbed = await message.author.send(Helpembed)
         } catch (error) {
-            message.channel.send("Uh oh, something went wrong.");
+            let HelpmsgEmbed = await message.channel.send(Helpembed)
             return;
         }
         // let HelpmsgEmbed = await message.author.send(Helpembed)
