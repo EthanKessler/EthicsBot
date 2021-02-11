@@ -47,7 +47,7 @@ client.on('message', async message =>{
 //        message.delete();
 //    }
 
-    if(message.channel.id === "674332038182207578" || message.channel.id === VChannel ){
+    if(message.channel.id === "674332038182207578"){
         var CheckMessage = message.content.toLowerCase();
 
         if(Math.floor(Math.random() * 10) === Math.floor(Math.random() * 10))
@@ -62,18 +62,6 @@ client.on('message', async message =>{
         {
             message.react("807432713849012264")
         }
-
-
-        if(CheckMessage.includes("imposter")){
-            message.react("767523653586780165")
-        };
-        if(CheckMessage.includes("uwu") || CheckMessage.includes("owo")){
-            message.react("766290436238082088")
-        };
-        if(CheckMessage.includes("fuck you")){
-            message.react("757661899792842902")
-        };
-        
         var HappyTurt = Math.floor(Math.random() * 1001);
         if (HappyTurt === Math.floor(Math.random() * 1001)){
           message.react("747181139009077338")
@@ -86,6 +74,18 @@ client.on('message', async message =>{
                 message.react("767223850907336704")
             }
         };
+    }
+    if(message.channel.id === VChannel){
+        if(CheckMessage.includes("imposter")){
+            message.react("767523653586780165")
+        };
+        if(CheckMessage.includes("uwu") || CheckMessage.includes("owo")){
+            message.react("766290436238082088")
+        };
+        if(CheckMessage.includes("fuck you")){
+            message.react("757661899792842902")
+        };
+    
     };
 
     //More random shit
