@@ -47,8 +47,22 @@ client.on('message', async message =>{
 //        message.delete();
 //    }
 
-    if(message.channel.id === "674332038182207578"){
+    if(message.channel.id === "674332038182207578" || message.channel.id === VChannel ){
         var CheckMessage = message.content.toLowerCase();
+
+        if(Math.floor(Math.random() * 10) === Math.floor(Math.random() * 10))
+        {
+            message.react("792890351584673832")
+        }
+        if(Math.floor(Math.random() * 10) === Math.floor(Math.random() * 10))
+        {
+            message.react("754162349732134984")
+        }
+        if(Math.floor(Math.random() * 10) === Math.floor(Math.random() * 10))
+        {
+            message.react("807432713849012264")
+        }
+
 
         if(CheckMessage.includes("imposter")){
             message.react("767523653586780165")
@@ -99,7 +113,7 @@ client.on('message', async message =>{
     };
     if(command === 'valentine'){
         var VMessage = args.join(" ")
-        client.channels.cache.get(VChannel).send(VMessage)
+        client.channels.cache.get(VChannel).send("❤ Happy Valentine's Day! " + VMessage)
         UpdateCommandsAnswered(message);
         try{
             message.delete();
@@ -267,7 +281,7 @@ client.on('message', async message =>{
         client.user.setActivity(activity);
         UpdateCommandsAnswered(message);
     };
-    if(command === "setvalentinechannel"){
+    if(command === "svc"){
         if(!Whitelist.includes(message.author.id)) return;
 
         VChannel = args.join("")
