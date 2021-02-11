@@ -17,6 +17,7 @@ var Whitelist = Whiteliststring.split(",")
 var Owner = process.env.owner;
 var CommandsAnswered = 0;
 var Waittime = (Math.random() * (14400000 - 3600000));
+var VChannel = "";
 
 client.commands = new Discord.Collection();
 
@@ -96,6 +97,16 @@ client.on('message', async message =>{
         client.commands.get('invite').execute(message, args);
         UpdateCommandsAnswered(message);
     };
+    if(command === 'valentine'){
+        var VMessage = args.join(" ")
+        client.channels.cache.get(VChannel).send(VMessage)
+        UpdateCommandsAnswered(message);
+        try{
+            message.delete();
+        } catch (error) {
+            print("fuck")
+        };
+    }
     if(command === 'donate' && message.channel.id === '674356809485516803'){
         client.commands.get('donate').execute(message, args);
         UpdateCommandsAnswered(message);
@@ -256,6 +267,12 @@ client.on('message', async message =>{
         client.user.setActivity(activity);
         UpdateCommandsAnswered(message);
     };
+    if(command === "setvalentinechannel"){
+        if(!Whitelist.includes(message.author.id)) return;
+
+        VChannel = args.join("")
+        UpdateCommandsAnswered(message);
+    }
 //Uptime
     if(command === 'uptime'){
         if(!Whitelist.includes(message.author.id)) return;
