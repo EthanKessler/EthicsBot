@@ -47,7 +47,7 @@ client.on('message', async message =>{
 //        message.delete();
 //    }
 
-    if(message.channel.id === "674332038182207578"){
+    if(message.channel.id === VChannel){
         var CheckMessage = message.content.toLowerCase();
 
         if(Math.floor(Math.random() * 10) === Math.floor(Math.random() * 10))
@@ -75,7 +75,7 @@ client.on('message', async message =>{
             }
         };
     }
-    if(message.channel.id === VChannel){
+    if(message.channel.id === "674332038182207578"){
         if(CheckMessage.includes("imposter")){
             message.react("767523653586780165")
         };
@@ -84,6 +84,18 @@ client.on('message', async message =>{
         };
         if(CheckMessage.includes("fuck you")){
             message.react("757661899792842902")
+        };
+        var HappyTurt = Math.floor(Math.random() * 1001);
+        if (HappyTurt === Math.floor(Math.random() * 1001)){
+          message.react("747181139009077338")
+        };
+
+        if (message.author.id === "674719244998541353")
+        {
+            if(Math.floor(Math.random() * 10) === Math.floor(Math.random() * 10))
+            {
+                message.react("767223850907336704")
+            }
         };
     
     };
