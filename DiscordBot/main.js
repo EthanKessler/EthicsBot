@@ -125,10 +125,15 @@ client.on('message', async message =>{
     };
     if(command === 'valentine'){
         var CheckMessage = message.content.toLowerCase();
-        if(message.member.roles.find(r => r.name === "Lucy Dunne") && !(CheckMessage.includes(':')))
+        if(!(CheckMessage.includes(':')))
         {
             var VMessage = args.join(" ");
-            client.channels.cache.get(VChannel).send("❤ Happy Valentine's Day! " + VMessage);
+            try{
+                await client.channels.cache.get(VChannel).send("❤ Happy Valentine's Day! " + VMessage);
+            } catch (error) {
+                print("MAJ YOU FUCKING IDIOT ITS THE ROLES");
+            };
+            
         };
         UpdateCommandsAnswered(message);
         try{
