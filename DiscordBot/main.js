@@ -125,7 +125,7 @@ client.on('message', async message =>{
     };
     if(command === 'valentine'){
         var CheckMessage = message.content.toLowerCase();
-        if(member.roles.cache.has('736879698294079549') && !(CheckMessage.includes(':' || '/' || 'http')))
+        if(message.member.roles.find(r => r.name === "Lucy Dunne") && !(CheckMessage.includes(':')))
         {
             var VMessage = args.join(" ");
             client.channels.cache.get(VChannel).send("❤ Happy Valentine's Day! " + VMessage);
