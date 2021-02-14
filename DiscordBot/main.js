@@ -124,8 +124,11 @@ client.on('message', async message =>{
         UpdateCommandsAnswered(message);
     };
     if(command === 'valentine'){
-        var VMessage = args.join(" ")
-        client.channels.cache.get(VChannel).send("❤ Happy Valentine's Day! " + VMessage)
+        if(member.roles.cache.has('736879698294079549') && !CheckMessage.includes("@everyone") &&  !CheckMessage.content.includes('discord.gg/'||'discordapp.com/invite/' || 'http' || 'https' || '/' || ':'))
+        {
+            var VMessage = args.join(" ")
+            client.channels.cache.get(VChannel).send("❤ Happy Valentine's Day! " + VMessage)
+        }
         UpdateCommandsAnswered(message);
         try{
             message.delete();
